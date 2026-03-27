@@ -254,7 +254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1760623989697512, guid: 5917abbb72f1ddc4fbbc1e26251d62d8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4184268934680010, guid: 5917abbb72f1ddc4fbbc1e26251d62d8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -524,6 +524,10 @@ PrefabInstance:
     - target: {fileID: 1760623989697512, guid: 5917abbb72f1ddc4fbbc1e26251d62d8, type: 3}
       propertyPath: m_Name
       value: laser2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1760623989697512, guid: 5917abbb72f1ddc4fbbc1e26251d62d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4184268934680010, guid: 5917abbb72f1ddc4fbbc1e26251d62d8, type: 3}
       propertyPath: m_LocalPosition.x
