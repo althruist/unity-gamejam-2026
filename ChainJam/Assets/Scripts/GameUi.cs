@@ -25,10 +25,10 @@ public  class GameUi : MonoBehaviour
 
         energyText.SetText("Energy: " + GameData.energy);
         fuelText.SetText("Fuel: " + GameData.fuel);
-        rowBombAmountText.SetText("Fuel: " + GameData.rowBombAmount);
+        rowBombAmountText.SetText("Row Bomb: " + GameData.rowBombAmount);
 
-        crossBombAmountText.SetText("Fuel: " + GameData.crossBombAmount);
-        XBombAmountText.SetText("Fuel: " + GameData.xBombAmount);
+        crossBombAmountText.SetText("Cross Bomb: " + GameData.crossBombAmount);
+        XBombAmountText.SetText("X Bomb: " + GameData.xBombAmount);
 
 
     }
