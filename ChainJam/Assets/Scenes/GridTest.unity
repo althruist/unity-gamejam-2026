@@ -148,10 +148,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b38e37020a44c4aa7969ed3d593959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridWidth: 10
-  gridHeight: 10
-  gridMap: {fileID: 0}
-  normalTile: {fileID: 11400000, guid: 5e524e8d375e40d45b04a43e1727796b, type: 2}
+  gridWidth: 20
+  gridHeight: 20
+  normalTile: {fileID: 3311294792965486401, guid: c3539236cebbb5144b190b740c2bca40, type: 3}
+  energyTile: {fileID: 4585459777214461848, guid: 349d0f47de5b91443a4eb0f99622a71f, type: 3}
+  fuelTile: {fileID: 8715387742681510453, guid: 2fcb6001cf32b30409282e359133d6f5, type: 3}
 --- !u!4 &452404890
 Transform:
   m_ObjectHideFlags: 0
