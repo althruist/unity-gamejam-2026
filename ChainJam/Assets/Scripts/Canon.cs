@@ -46,8 +46,8 @@ public class Canon : MonoBehaviour
 
     public void SpawnBullet()
     {
-        Instantiate(laserPrefab, firePoint.position, transform.rotation);
-
+        Quaternion rot = transform.rotation;
+        Instantiate(laserPrefab, firePoint.position, rot);
     }
     public void OnShootAnimationEnd()
     {
