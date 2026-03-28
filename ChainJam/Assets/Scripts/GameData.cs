@@ -9,7 +9,7 @@ public abstract class GameData
     public static int plusBombAmount;
 
 
-    public static int gridLenght = 20;
+    public static int gridLenght = 30;
 
 
 }

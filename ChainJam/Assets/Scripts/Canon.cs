@@ -4,7 +4,7 @@ public class Canon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject laserPrefab;
-    Vector2 canonOffset = new Vector2(-10f, -5f);
+    Vector2 canonOffset = new Vector2(-9f, 0f);
 
     void Start()
     {
@@ -17,20 +17,26 @@ public class Canon : MonoBehaviour
     {
         
         PointAtMouse();
+        
 
         if (Input.GetMouseButtonDown(0))
         {
             SpawnBullet();
             Debug.Log("Fire");
+            GameData.energy -= 10;
         }
     }
     void FollowCamera()
     {
-        Camera.main.orthographicSize = 5 * ((float)GameData.gridLenght / 10.0f);
         Vector3 camPos = Camera.main.transform.position;
 
-        // Keep cannon at a fixed offset from the camera
-        transform.position = camPos + new Vector3(canonOffset.x, canonOffset.y, z: 10f);
+        float scaleFactor = (float)GameData.gridLenght / 10.0f;
+
+        // Position (your existing logic, fixed syntax)
+        transform.position = camPos + new Vector3(canonOffset.x, canonOffset.y, 10f) * scaleFactor;
+
+        
+        transform.localScale = Vector3.one * scaleFactor /2;
     }
 
     public void SpawnBullet()

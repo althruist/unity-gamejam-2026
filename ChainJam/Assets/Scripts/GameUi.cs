@@ -32,6 +32,14 @@ public  class GameUi : MonoBehaviour
 
 
     }
+    void Update()
+    {
+        energyText.SetText("Energy: " + GameData.energy);
+        fuelText.SetText("Fuel: " + GameData.fuel);
+        rowBombAmountText.SetText("Bomb: " + GameData.bombAmount);
+        crossBombAmountText.SetText("Cross Bomb: " + GameData.crossBombAmount);
+        XBombAmountText.SetText("Plus Bomb: " + GameData.plusBombAmount);
+    }
 
 
 }

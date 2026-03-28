@@ -12,7 +12,7 @@ enum GridTileType
 
 public class LevelGrid : MonoBehaviour
 {
-    public int gridLenght = 0;
+    
     float tileScale = 1;
     Vector2 gridOffset = new Vector2(-4f, -5f);
     Vector2 tileOffset = new Vector2(0.5f, 0.5f);
@@ -42,14 +42,14 @@ public class LevelGrid : MonoBehaviour
 
     void CreateGrid()
     {
-        Camera.main.orthographicSize = 5 * ((float) gridLenght / 10.0f);
+        Camera.main.orthographicSize = 5 * ((float) GameData.gridLenght / 10.0f);
 
 
-        grid = new GridTileType[gridLenght, gridLenght];
+        grid = new GridTileType[GameData.gridLenght, GameData.gridLenght];
 
-        for (int w = 0; w < gridLenght; w++)
+        for (int w = 0; w < GameData.gridLenght; w++)
         {
-            for (int h = 0; h < gridLenght; h++)
+            for (int h = 0; h < GameData.gridLenght; h++)
             {
                 grid[w, h] = GridTileType.Normal;
             }
@@ -62,12 +62,12 @@ public class LevelGrid : MonoBehaviour
         RandomizeGrid();
 
 
-        for (int w = 0; w < gridLenght; w++)
+        for (int w = 0; w < GameData.gridLenght; w++)
         {
-            for (int h = 0; h < gridLenght; h++)
+            for (int h = 0; h < GameData.gridLenght; h++)
             {
                 Instantiate(GetTileType(grid[w, h]), 
-                    new Vector2(w * tileScale, h * tileScale) + (gridOffset * ((float) gridLenght / 10.0f)) + tileOffset,
+                    new Vector2(w * tileScale, h * tileScale) + (gridOffset * ((float) GameData.gridLenght / 10.0f)) + tileOffset,
                     Quaternion.identity, this.transform);
             }
         }
@@ -76,7 +76,7 @@ public class LevelGrid : MonoBehaviour
 
     void RandomizeGrid()
     {
-        float multiplyer = (float)(gridLenght) / 10;
+        float multiplyer = (float)(GameData.gridLenght) / 10;
 
         int EnergyNum = (int) Mathf.Round(Random.Range(5, 10) * multiplyer);
         InsertTiles(EnergyNum, GridTileType.Energy);
@@ -103,8 +103,8 @@ public class LevelGrid : MonoBehaviour
     {
         while (tileCount > 0)
         {
-            int randX = Random.Range(0, gridLenght);
-            int randY = Random.Range(0, gridLenght);
+            int randX = Random.Range(0, GameData.gridLenght);
+            int randY = Random.Range(0, GameData.gridLenght);
             if (grid[randX, randY] == GridTileType.Normal)
             {
                 grid[randX, randY] = tileType;
