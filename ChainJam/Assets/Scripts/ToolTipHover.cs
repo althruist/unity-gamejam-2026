@@ -5,10 +5,12 @@ public class HoverTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 {
     public ToolTipManager tooltip;
     [TextArea] public string message;
+    public Color cardColor;
+    public Color textColor;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        tooltip.Show(message);
+        tooltip.Show(message, cardColor, textColor);
     }
 
     public void OnPointerExit(PointerEventData eventData)
