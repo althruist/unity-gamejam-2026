@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ff864cdee2f87934b9065fcde8978fc1
+guid: 1845fc20582b39443925832779df15cc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1249140702879814685
-    second: cross_bomb_0
+      213: 3869275551672029106
+    second: fuel_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cross_bomb_0
+      name: fuel_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,30 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d1412add9d6d55110800000000000000
-      internalID: 1249140702879814685
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cross_bomb_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f1b5a5fa1f6650647bdb55d40c17888d
-      internalID: 1033716265
+      spriteID: 2bfc38b2d9d62b530800000000000000
+      internalID: 3869275551672029106
       vertices: []
       indices: 
       edges: []
@@ -160,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 64948265547c5f14e85ff6a9b3aab73c
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -170,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cross_bomb_0: 1249140702879814685
-      cross_bomb_1: 1033716265
+      fuel_0: 3869275551672029106
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
