@@ -645,6 +645,8 @@ GameObject:
   - component: {fileID: 344372393}
   - component: {fileID: 344372395}
   - component: {fileID: 344372394}
+  - component: {fileID: 344372396}
+  - component: {fileID: 344372397}
   m_Layer: 5
   m_Name: Spacebar
   m_TagString: Untagged
@@ -709,6 +711,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 344372392}
   m_CullTransparentMesh: 1
+--- !u!95 &344372396
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344372392}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c723adc9784fa4448a8c7fbc6488295d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &344372397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344372392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e64f6b90f73274f9a41bcf9876f09b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spacebar: {fileID: 344372392}
+  mouse: {fileID: 0}
+  animator: {fileID: 344372396}
 --- !u!1 &375358258
 GameObject:
   m_ObjectHideFlags: 0
@@ -5045,7 +5084,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 444718805}
   text: {fileID: 1564929298}
-  hoverCursor: {fileID: 2800000, guid: fbbadfb2c43495e4587e940e2bc97ebe, type: 3}
+  hoverCursor: {fileID: 2800000, guid: 0b9f22b9af45e594cafc9d508103f2ec, type: 3}
   hotspot: {x: 0, y: 0}
 --- !u!1 &2099146042
 GameObject:

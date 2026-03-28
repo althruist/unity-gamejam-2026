@@ -20,8 +20,7 @@ public class Canon : MonoBehaviour
     }
 
     void Update()
-    {
-        
+    { 
         PointAtMouse();
 
 
