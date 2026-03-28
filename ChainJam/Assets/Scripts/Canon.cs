@@ -25,7 +25,7 @@ public class Canon : MonoBehaviour
         PointAtMouse();
 
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Shoot();
 
