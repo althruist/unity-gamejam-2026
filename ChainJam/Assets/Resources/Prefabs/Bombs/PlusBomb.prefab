@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4576476064485193556}
   - component: {fileID: 823493025600937707}
   - component: {fileID: -4528480818210024717}
-  - component: {fileID: -8665159493344368939}
+  - component: {fileID: -8412268478889280347}
   m_Layer: 0
   m_Name: PlusBomb
   m_TagString: Tile
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bombLevel: 1
---- !u!61 &-8665159493344368939
+--- !u!61 &-8412268478889280347
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,5 +169,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0

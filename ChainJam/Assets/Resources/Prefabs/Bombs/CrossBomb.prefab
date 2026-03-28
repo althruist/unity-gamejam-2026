@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2738541783364807980}
   - component: {fileID: 8208635686809708050}
   - component: {fileID: 4682769391927169958}
-  - component: {fileID: -8752054717262708984}
+  - component: {fileID: -6044754415421234678}
   m_Layer: 0
   m_Name: CrossBomb
   m_TagString: Tile
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bombLevel: 1
---- !u!61 &-8752054717262708984
+--- !u!61 &-6044754415421234678
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,5 +169,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
