@@ -6,7 +6,7 @@ public class CrossBombTile : BaseBombTile
     {
         DisableCollider();
 
-        for (int i = 1; i <= bombLevel; i++)
+        for (int i = 1; i <= GameData.crossBombLevel; i++)
         {
             Check(new Vector3(-i, i, 0));
             Check(new Vector3(i, i, 0));

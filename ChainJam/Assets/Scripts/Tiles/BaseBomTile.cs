@@ -3,7 +3,7 @@ using System.Collections;
 
 public abstract class BaseBombTile : MonoBehaviour, IActionTile
 {
-    public int bombLevel = 1;
+   
     protected BoxCollider2D col;
     protected Animator anim;
 

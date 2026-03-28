@@ -7,15 +7,15 @@ public class PlusBombTile : BaseBombTile
         DisableCollider();
 
         RaycastHit2D[] hitsVert = Physics2D.RaycastAll(
-            transform.position + (Vector3.up * bombLevel),
+            transform.position + (Vector3.up * GameData.plusBombLevel),
             Vector2.down,
-            bombLevel * 2
+            GameData.plusBombLevel * 2
         );
 
         RaycastHit2D[] hitsHori = Physics2D.RaycastAll(
-            transform.position + (Vector3.left * bombLevel),
+            transform.position + (Vector3.left * GameData.plusBombLevel),
             Vector2.right,
-            bombLevel * 2
+            GameData.plusBombLevel * 2
         );
 
         foreach (var hit in hitsVert)

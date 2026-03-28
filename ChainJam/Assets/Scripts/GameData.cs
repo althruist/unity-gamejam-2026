@@ -10,10 +10,14 @@ public abstract class GameData
     public static int bombAmount;
     public static int crossBombAmount;
     public static int plusBombAmount;
+    public static int bombLevel = 1;
+    public static int plusBombLevel = 1;
+    public static int crossBombLevel = 1;
 
 
 
-    public static int gridLenght = 50;
+
+    public static int gridLenght = 100;
 
 
 }
