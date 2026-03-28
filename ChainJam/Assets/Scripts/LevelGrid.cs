@@ -16,6 +16,7 @@ public class LevelGrid : MonoBehaviour
     float tileScale = 1;
     Vector2 gridOffset = new Vector2(-4f, -5f);
     Vector2 tileOffset = new Vector2(0.5f, 0.5f);
+    const int vertGridLength = 10;
 
     //public Tilemap gridMap;
     public GameObject normalTile;
@@ -42,7 +43,7 @@ public class LevelGrid : MonoBehaviour
 
     void CreateGrid()
     {
-        Camera.main.orthographicSize = 5 * ((float) GameData.gridLenght / 10.0f);
+        //Camera.main.orthographicSize = 5 * ((float) GameData.gridLenght / 10.0f);
 
 
         grid = new GridTileType[GameData.gridLenght, GameData.gridLenght];
@@ -64,10 +65,11 @@ public class LevelGrid : MonoBehaviour
 
         for (int w = 0; w < GameData.gridLenght; w++)
         {
-            for (int h = 0; h < GameData.gridLenght; h++)
+            for (int h = 0; h < vertGridLength; h++)
             {
-                Instantiate(GetTileType(grid[w, h]), 
-                    new Vector2(w * tileScale, h * tileScale) + (gridOffset * ((float) GameData.gridLenght / 10.0f)) + tileOffset,
+                Instantiate(GetTileType(grid[w, h]),
+                    //new Vector2(w * tileScale, h * tileScale) + (gridOffset * ((float) GameData.gridLenght / 10.0f)) + tileOffset,
+                    new Vector2(w * tileScale, h * tileScale) + gridOffset + tileOffset,
                     Quaternion.identity, this.transform);
             }
         }
