@@ -1,17 +1,34 @@
 using UnityEngine;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private GameObject spacebar;
-    [SerializeField] private GameObject mouse;
-    [SerializeField] private Animator animator;
-
-    void Update()
+    public enum StatType
     {
-        bool isPressed = Input.GetKey(KeyCode.Space);
-        bool isMousePressed = Input.GetMouseButton(0);
+        Energy,
+        Fuel
+    }
 
-        animator.SetBool("spacebarPressed", isPressed);
-        animator.SetBool("mousePressed", isMousePressed);
+    public static UIManager Instance;
+
+    public TextMeshProUGUI energyText;
+    public TextMeshProUGUI fuelText;
+
+    void Awake()
+    {
+        Instance = this;
+    }
+
+    public void Modify(StatType statType)
+    {
+        switch (statType)
+        {
+            case StatType.Energy:
+                energyText.GetComponent<Animator>().SetTrigger("Modify");
+                break;
+            case StatType.Fuel:
+                fuelText.GetComponent<Animator>().SetTrigger("Modify");
+                break;
+        }
     }
 }

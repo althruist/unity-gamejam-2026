@@ -1,10 +1,12 @@
 using UnityEngine;
+using TMPro;
 
 public class EnergyTile : MonoBehaviour, IActionTile
 {
     public void Action()
     {
         GameData.energy += 100;
+        UIManager.Instance.Modify(UIManager.StatType.Energy);
         Destroy(gameObject);
     }
     private void OnTriggerEnter2D(Collider2D collision)

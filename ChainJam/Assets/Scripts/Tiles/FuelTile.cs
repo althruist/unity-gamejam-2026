@@ -5,9 +5,9 @@ public class FuelTile : MonoBehaviour, IActionTile
     public void Action()
     {
         GameData.fuel += 100;
+        UIManager.Instance.Modify(UIManager.StatType.Fuel);
         Destroy(gameObject);
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -15,8 +15,6 @@ public class FuelTile : MonoBehaviour, IActionTile
         if (collision.gameObject.CompareTag("Laser"))
         {
             Action();
-            
-
         }
 
     }
