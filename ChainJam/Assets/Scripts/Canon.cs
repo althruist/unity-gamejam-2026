@@ -6,7 +6,10 @@ public class Canon : MonoBehaviour
     public Transform firePoint;
     public GameObject laserPrefab;
     Vector2 canonOffset = new Vector2(-9f, 0f);
+    bool isShooting = false;
 
+    [SerializeField] private float shootCooldown = 0.5f; // seconds between allowed shots
+    private float nextShootTime = 0f;
 
     Quaternion clampRotationLow, clampRotationHigh;
 
@@ -20,27 +23,21 @@ public class Canon : MonoBehaviour
     }
 
     void Update()
-    { 
+    {
         PointAtMouse();
 
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        // Prevent spamming by requiring: not currently shooting, cooldown expired, and enough energy
+        if (Input.GetKeyDown(KeyCode.Space) && !isShooting && Time.time >= nextShootTime && GameData.energy >= 10)
         {
             Shoot();
-
         }
     }
     void FollowCamera()
     {
         Vector3 camPos = Camera.main.transform.position;
 
-        
-
         // Position (your existing logic, fixed syntax)
-        transform.position = camPos + new Vector3(canonOffset.x, canonOffset.y, 10f) ;
-
-        
-        
+        transform.position = camPos + new Vector3(canonOffset.x, canonOffset.y, 10f);
     }
 
     public void SpawnBullet()
@@ -52,15 +49,19 @@ public class Canon : MonoBehaviour
     {
         Debug.Log("shoot EVENT FIRED");
         animator.SetBool("isShooting", false);
+        isShooting = false;
         SpawnBullet();
-
-
     }
 
     public void Shoot()
     {
+        isShooting = true;
         Debug.Log("shots");
+
         GameData.energy -= 10;
+
+        // set next allowed shoot time to enforce cooldown
+        nextShootTime = Time.time + shootCooldown;
 
         animator.SetBool("isShooting", true);
     }
