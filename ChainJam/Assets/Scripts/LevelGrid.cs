@@ -55,10 +55,11 @@ public class LevelGrid : MonoBehaviour
             }
         }
 
-        //grid[3, 3] = GridTileType.Fuel;
-        grid[7, 16] = GridTileType.CrossBomb;
-        grid[5, 5] = GridTileType.CrossBomb;
-        grid[5, 16] = GridTileType.CrossBomb;
+        ////grid[3, 3] = GridTileType.Fuel;
+        //grid[7, 16] = GridTileType.Bomb;
+        //grid[5, 5] = GridTileType.CrossBomb;
+        //grid[5, 16] = GridTileType.PlusBomb;
+        RandomizeGrid();
 
 
         for (int w = 0; w < gridLenght; w++)
@@ -72,6 +73,38 @@ public class LevelGrid : MonoBehaviour
         }
     }
 
+
+    void RandomizeGrid()
+    {
+        float multiplyer = (float)(gridLenght) / 10;
+
+        int EnergyNum = (int) Mathf.Round(Random.Range(5, 10) * multiplyer);
+        InsertTiles(EnergyNum, GridTileType.Energy);
+        int FuelNum = (int)Mathf.Round(Random.Range(5, 10) * multiplyer);
+        InsertTiles(FuelNum, GridTileType.Fuel);
+
+        int BombCrateNum = (int)Mathf.Round(multiplyer);
+        InsertTiles(BombCrateNum, GridTileType.BombCrate);
+        int CrossBombCrateNum = (int)Mathf.Round(Random.Range(2, 3) * multiplyer);
+        InsertTiles(CrossBombCrateNum, GridTileType.CrossBombCrate);
+        int PlusBombCrateNum = (int)Mathf.Round(Random.Range(2, 3) * multiplyer);
+        InsertTiles(PlusBombCrateNum, GridTileType.PlusBombCrate);
+    }
+
+
+    void InsertTiles(int tileCount, GridTileType tileType)
+    {
+        while (tileCount > 0)
+        {
+            int randX = Random.Range(0, gridLenght);
+            int randY = Random.Range(0, gridLenght);
+            if (grid[randX, randY] == GridTileType.Normal)
+            {
+                grid[randX, randY] = tileType;
+                tileCount--;
+            }
+        }
+    }
 
     GameObject GetTileType(GridTileType gridType)
     {
