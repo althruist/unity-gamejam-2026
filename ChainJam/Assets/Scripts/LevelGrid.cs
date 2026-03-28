@@ -79,10 +79,10 @@ public class LevelGrid : MonoBehaviour
     void RandomizeGrid()
     {
         float multiplyer = (float)(GameData.gridLenght) / 10;
-        Debug.Log(multiplyer);
+        //Debug.Log(multiplyer);
 
         int EnergyNum = (int) Mathf.Round(Random.Range(5, 10) * multiplyer);
-        Debug.Log(EnergyNum);
+        //Debug.Log(EnergyNum);
         InsertTiles(EnergyNum, GridTileType.Energy);
         int FuelNum = (int)Mathf.Round(Random.Range(5, 10) * multiplyer);
         InsertTiles(FuelNum, GridTileType.Fuel);

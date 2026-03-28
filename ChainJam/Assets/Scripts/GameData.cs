@@ -17,7 +17,7 @@ public abstract class GameData
 
 
 
-    public static int gridLenght = 100;
+    public static int gridLenght = 50;
 
 
 }
