@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,16 +23,35 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        loadLoseScreen();
+        loadWin();
     }
 
-    public void GameOver()
+    //public void GameOver()
+    //{
+    //    if(GameData.energy <= 0 &GameData.fuel<= GameData.fuelToWin)
+    //    {
+
+    //    }
+    //        Debug.Log("Game Over!");
+
+    //}
+
+
+    void loadLoseScreen()
     {
-        if(GameData.energy <= 0 &GameData.fuel<= GameData.fuelToWin)
+        if (GameData.energy <= 0)
         {
-
+            //Time.timeScale = 1f;
+            SceneManager.LoadScene("LoseScene");
         }
-            Debug.Log("Game Over!");
+    }
 
+    void loadWin()
+    {
+        if (GameData.fuel <= GameData.fuelToWin)
+        {
+            //Make next level Button
+        }
     }
 }
