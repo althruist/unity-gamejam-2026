@@ -26,6 +26,7 @@ public class GameUi : MonoBehaviour
         crossBombAmountText.SetText("x" + GameData.crossBombAmount);
         plusBombAmountText.SetText("x" + GameData.plusBombAmount);
         anim = controls.GetComponent<Animator>();
+        CinematicLetterbox.Instance.active = false;
     }
     void Update()
     {
