@@ -89,6 +89,13 @@ public class LevelGrid : MonoBehaviour
         InsertTiles(CrossBombCrateNum, GridTileType.CrossBombCrate);
         int PlusBombCrateNum = (int)Mathf.Round(Random.Range(2, 3) * multiplyer);
         InsertTiles(PlusBombCrateNum, GridTileType.PlusBombCrate);
+
+        int NatBombNum = (int)Mathf.Round(Random.Range(1, 5) * multiplyer);
+        InsertTiles(NatBombNum, GridTileType.NatBomb);
+        int NatCrossBombNum = (int)Mathf.Round(Random.Range(1, 5) * multiplyer);
+        InsertTiles(NatCrossBombNum, GridTileType.NatCrossBomb);
+        int NatPlusBombNum = (int)Mathf.Round(Random.Range(1, 5) * multiplyer);
+        InsertTiles(NatPlusBombNum, GridTileType.NatPlusBomb);
     }
 
 
