@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LEVEL SELECT
+  m_text: play
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf9e0203a207c4149ad19ec3ed8a226b, type: 2}
   m_sharedMaterial: {fileID: -110396947129876201, guid: cf9e0203a207c4149ad19ec3ed8a226b, type: 2}
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 119.09476, y: -7.634247, z: 0, w: 10.450043}
+  m_margin: {x: -2.3852844, y: -7.634247, z: 0, w: 10.450043}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -267,6 +267,7 @@ GameObject:
   - component: {fileID: 187686714}
   - component: {fileID: 187686713}
   - component: {fileID: 187686712}
+  - component: {fileID: 187686715}
   m_Layer: 5
   m_Name: LevelSelect
   m_TagString: Untagged
@@ -291,7 +292,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -424, y: -268}
+  m_AnchoredPosition: {x: -370, y: -119}
   m_SizeDelta: {x: 422.1485, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &187686712
@@ -388,6 +389,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187686710}
   m_CullTransparentMesh: 1
+--- !u!114 &187686715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187686710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e5586cb9457bc64aa91c6db35d1c64f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalScale: {x: 1, y: 1, z: 1}
+  hoverScale: {x: 1.1, y: 1.1, z: 1}
+  speed: 10
 --- !u!1 &871967536
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b967c51dba5d4640babb93c410fb478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameScreen: SampleScene
+  gameScreen: Gameplay
   mainMenuScreen: MainMenu
 --- !u!4 &937756245
 Transform:
@@ -650,54 +666,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!1 &1120896376
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1120896377}
-  - component: {fileID: 1120896378}
-  m_Layer: 0
-  m_Name: UIManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1120896377
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120896376}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 617.727, y: 383.01236, z: -4.039415}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1120896378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120896376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 034a9c6a68bf2e44f9c52dcc16754449, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 0}
-  text: {fileID: 0}
-  hoverCursor: {fileID: 2800000, guid: 0b9f22b9af45e594cafc9d508103f2ec, type: 3}
-  hotspot: {x: 0, y: 0}
 --- !u!1 &1354817591
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,6 +678,7 @@ GameObject:
   - component: {fileID: 1354817595}
   - component: {fileID: 1354817594}
   - component: {fileID: 1354817593}
+  - component: {fileID: 1354817596}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -734,7 +703,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -424, y: -118}
+  m_AnchoredPosition: {x: -370, y: -267}
   m_SizeDelta: {x: 422.1485, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1354817593
@@ -813,8 +782,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6796818179285881832, guid: 3cf8085b45743c54b925b81668be4357, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: -7443756053782179069, guid: 2e61f3746f5611b46b8e377aa485b20e, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -831,6 +800,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354817591}
   m_CullTransparentMesh: 1
+--- !u!114 &1354817596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354817591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e5586cb9457bc64aa91c6db35d1c64f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalScale: {x: 1, y: 1, z: 1}
+  hoverScale: {x: 1.1, y: 1.1, z: 1}
+  speed: 10
 --- !u!1 &1626643267
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,7 +939,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 117.990814, y: 0, z: 3.4035645, w: 16.255646}
+  m_margin: {x: 0.048919678, y: 0, z: 3.4035645, w: 16.255646}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1107,7 +1091,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -304, y: -155}
+  m_AnchoredPosition: {x: -304, y: -110}
   m_SizeDelta: {x: 1000, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2016002318
@@ -1217,4 +1201,3 @@ SceneRoots:
   - {fileID: 1852624554}
   - {fileID: 871967539}
   - {fileID: 937756245}
-  - {fileID: 1120896377}
