@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
+    [SerializeField] private Animator animator;
     Rigidbody2D rb;
     public int lifetime = 5;
     void Start()
@@ -34,23 +35,5 @@ public class Laser : MonoBehaviour
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-    // void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    if (other.gameObject.CompareTag("Tile"))
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
 
 }
