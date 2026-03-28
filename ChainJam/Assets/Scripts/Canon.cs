@@ -6,8 +6,13 @@ public class Canon : MonoBehaviour
     public GameObject laserPrefab;
     Vector2 canonOffset = new Vector2(-9f, 0f);
 
+
+    Quaternion clampRotationLow, clampRotationHigh;
+
     void Start()
     {
+        clampRotationLow = Quaternion.Euler(0, 0, -70f);
+        clampRotationHigh = Quaternion.Euler(0, 0, +70f);
         FollowCamera();
         
 
@@ -17,13 +22,12 @@ public class Canon : MonoBehaviour
     {
         
         PointAtMouse();
-        
 
-        if (Input.GetMouseButtonDown(0))
+
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            SpawnBullet();
-            Debug.Log("Fire");
-            GameData.energy -= 10;
+            shoot();
+
         }
     }
     void FollowCamera()
@@ -45,17 +49,28 @@ public class Canon : MonoBehaviour
 
     }
 
+    public void shoot()
+    {
+        SpawnBullet();
+        GameData.energy -= 10;
+    }
 
     public void PointAtMouse()
     {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0f;
 
-        Vector3 mousePos =  Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0f, 0f, 10f); ;
+        Vector3 direction = mousePos - transform.position;
 
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        angle -= 90f;
 
-        mousePos.z = transform.position.z;
+        // Clamp angle
+        angle = Mathf.Clamp(angle, -140f, -49f);
 
+        Quaternion targetRotation = Quaternion.Euler(0f, 0f, angle);
 
-        transform.up = mousePos - transform.position;
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
     }
 
 }

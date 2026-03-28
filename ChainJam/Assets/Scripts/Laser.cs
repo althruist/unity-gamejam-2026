@@ -8,6 +8,13 @@ public class Laser : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.linearVelocity = transform.up * 10f;
     }
+
+
+    
+
+
+
+
     // void OnTriggerEnter2D(Collider2D other)
     //{
     //    if (other.gameObject.CompareTag("Tile"))
