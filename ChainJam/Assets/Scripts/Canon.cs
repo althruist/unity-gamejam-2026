@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Canon : MonoBehaviour
 {
+    [SerializeField] private Animator animator;
     public Transform firePoint;
     public GameObject laserPrefab;
     Vector2 canonOffset = new Vector2(-9f, 0f);
@@ -11,11 +12,11 @@ public class Canon : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
+
         clampRotationLow = Quaternion.Euler(0, 0, -70f);
         clampRotationHigh = Quaternion.Euler(0, 0, +70f);
         FollowCamera();
-        
-
     }
 
     void Update()
@@ -26,7 +27,7 @@ public class Canon : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            shoot();
+            Shoot();
 
         }
     }
@@ -48,11 +49,21 @@ public class Canon : MonoBehaviour
         Instantiate(laserPrefab, firePoint.position, transform.rotation);
 
     }
-
-    public void shoot()
+    public void OnShootAnimationEnd()
     {
+        Debug.Log("shoot EVENT FIRED");
+        animator.SetBool("isShooting", false);
         SpawnBullet();
+
+
+    }
+
+    public void Shoot()
+    {
+        Debug.Log("shots");
         GameData.energy -= 10;
+
+        animator.SetBool("isShooting", true);
     }
 
     public void PointAtMouse()
