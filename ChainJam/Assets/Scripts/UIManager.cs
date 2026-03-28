@@ -9,7 +9,9 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         bool isPressed = Input.GetKey(KeyCode.Space);
+        bool isMousePressed = Input.GetMouseButton(0);
 
         animator.SetBool("spacebarPressed", isPressed);
+        animator.SetBool("mousePressed", isMousePressed);
     }
 }

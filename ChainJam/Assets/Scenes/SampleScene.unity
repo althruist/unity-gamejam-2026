@@ -4445,6 +4445,8 @@ GameObject:
   - component: {fileID: 1579526462}
   - component: {fileID: 1579526464}
   - component: {fileID: 1579526463}
+  - component: {fileID: 1579526466}
+  - component: {fileID: 1579526465}
   m_Layer: 5
   m_Name: Mouse
   m_TagString: Untagged
@@ -4509,6 +4511,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579526461}
   m_CullTransparentMesh: 1
+--- !u!114 &1579526465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579526461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e64f6b90f73274f9a41bcf9876f09b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spacebar: {fileID: 0}
+  mouse: {fileID: 1579526461}
+  animator: {fileID: 1579526466}
+--- !u!95 &1579526466
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579526461}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8c7462275b3a84b4abec39e4331e2f4c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1724221148
 GameObject:
   m_ObjectHideFlags: 0
