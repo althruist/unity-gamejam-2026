@@ -19,4 +19,11 @@ public class ButtonManager : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(mainMenuScreen);
     }
+
+    public void Quit()
+    {
+        Debug.Log("Quit");
+
+        Application.Quit();
+    }
 }
