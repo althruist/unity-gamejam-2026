@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 153615071}
   - component: {fileID: 153615070}
   - component: {fileID: 153615073}
+  - component: {fileID: 153615074}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -168,12 +169,12 @@ MonoBehaviour:
   bombTile: {fileID: 4949759581211517523, guid: 029ca24a48f5c1c4a9178f4a2ee61757, type: 3}
   crossBombTile: {fileID: 4426137167630340681, guid: 9602268c086c67946a1b451bc719fb9e, type: 3}
   plusBombTile: {fileID: 5997655175523389426, guid: 049daaa3406a10e48b5fb70ed3a98b35, type: 3}
-  bombCrateTile: {fileID: 7055375466370783747, guid: 6cb0f8aa487b0a649a834b230f96862f, type: 3}
-  crossBombCrateTile: {fileID: 4449903190569846778, guid: 4f9efd2d1a996834883069064150aa2d, type: 3}
-  plusBombCrateTile: {fileID: 5348567568541925606, guid: f79187288c90b654aa03875f030da5ef, type: 3}
-  natBombTile: {fileID: 4949759581211517523, guid: 0fe84569c96d37041be594dd62d7eaff, type: 3}
-  natCrossBombTile: {fileID: 4426137167630340681, guid: d5d773c5a1afff3408328a9ed960c9d2, type: 3}
-  natPlusBombTile: {fileID: 5997655175523389426, guid: 9b41e19db7ffd6846ac86bd698dcef0c, type: 3}
+  bombCrateTile: {fileID: 4162076501735133084, guid: 4d6412ad1b50ed548bf59d0da3ded181, type: 3}
+  crossBombCrateTile: {fileID: 2105658808960156562, guid: 77b0476bd1f0f574ab5d1d14b68939bf, type: 3}
+  plusBombCrateTile: {fileID: 5181112796731264951, guid: 4063b5fa0a3372f4084daf3d4dbf28f6, type: 3}
+  natBombTile: {fileID: 33488386507422881, guid: 0dff3a613cbed4b4d8cff7f19859443b, type: 3}
+  natCrossBombTile: {fileID: 8663357872164653443, guid: 8ad90d2df0ab6ea4490e992de373ea1e, type: 3}
+  natPlusBombTile: {fileID: 6429054065812502559, guid: f5282ad7302abbe4db375d28c251c394, type: 3}
 --- !u!4 &153615072
 Transform:
   m_ObjectHideFlags: 0
@@ -202,6 +203,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedBomb: 0
+--- !u!114 &153615074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153615069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adec07ea05e647e4292767019e3426a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &226030672
 GameObject:
   m_ObjectHideFlags: 0

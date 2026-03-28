@@ -4,9 +4,13 @@ public abstract class GameData
 {
     public static int energy;
     public static int fuel;
+    public static int fuelToWin;
+
+
     public static int bombAmount;
     public static int crossBombAmount;
     public static int plusBombAmount;
+
 
 
     public static int gridLenght = 10;

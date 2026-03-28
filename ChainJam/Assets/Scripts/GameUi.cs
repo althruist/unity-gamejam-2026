@@ -15,11 +15,6 @@ public  class GameUi : MonoBehaviour
 
     void Start()
     {
-        GameData.energy=100;
-        GameData.fuel=100;
-        GameData.bombAmount=3;
-        GameData.plusBombAmount = 3;
-        GameData.crossBombAmount = 3;
 
 
 
