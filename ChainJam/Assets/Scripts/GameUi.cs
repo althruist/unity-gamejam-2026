@@ -9,8 +9,8 @@ public  class GameUi : MonoBehaviour
     public TextMeshProUGUI energyText;
     public TextMeshProUGUI fuelText;
     public TextMeshProUGUI rowBombAmountText;
+    public TextMeshProUGUI plusBombAmountText;
     public TextMeshProUGUI crossBombAmountText;
-    public TextMeshProUGUI XBombAmountText;
 
 
     void Start()
@@ -20,10 +20,10 @@ public  class GameUi : MonoBehaviour
 
         energyText.SetText("Energy: " + GameData.energy);
         fuelText.SetText("Fuel: " + GameData.fuel);
-        rowBombAmountText.SetText("Bomb: " + GameData.bombAmount);
 
-        crossBombAmountText.SetText("Cross Bomb: " + GameData.crossBombAmount);
-        XBombAmountText.SetText("Plus Bomb: " + GameData.plusBombAmount);
+        rowBombAmountText.SetText("x" + GameData.bombAmount);
+        crossBombAmountText.SetText("x" + GameData.crossBombAmount);
+        plusBombAmountText.SetText("x" + GameData.plusBombAmount);
 
 
     }
@@ -31,9 +31,9 @@ public  class GameUi : MonoBehaviour
     {
         energyText.SetText("Energy: " + GameData.energy);
         fuelText.SetText("Fuel: " + GameData.fuel);
-        rowBombAmountText.SetText("Bomb: " + GameData.bombAmount);
-        crossBombAmountText.SetText("Cross Bomb: " + GameData.crossBombAmount);
-        XBombAmountText.SetText("Plus Bomb: " + GameData.plusBombAmount);
+        rowBombAmountText.SetText("x" + GameData.bombAmount);
+        crossBombAmountText.SetText("x" + GameData.crossBombAmount);
+        plusBombAmountText.SetText("x" + GameData.plusBombAmount);
     }
 
 
