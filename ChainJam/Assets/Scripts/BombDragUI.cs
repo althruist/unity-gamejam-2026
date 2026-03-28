@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class BombDragUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public BombType bombType;
-    public Image iconImage; // drag your UI image here
+    public Image iconImage;
 
     private GameObject dragIcon;
     private RectTransform dragRect;
@@ -23,7 +23,6 @@ public class BombDragUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
         ShopManager.Instance.selectedBomb = bombType;
 
-        // create floating icon
         dragIcon = new GameObject("DragIcon");
         dragIcon.transform.SetParent(canvas.transform, false);
 

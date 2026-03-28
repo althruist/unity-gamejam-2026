@@ -313,8 +313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adec07ea05e647e4292767019e3426a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wall: {fileID: 0}
-  background: {fileID: 0}
+  wall: {fileID: 1525904919}
+  background: {fileID: 1361077603}
 --- !u!1 &214708425
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,6 +560,8 @@ GameObject:
   - component: {fileID: 385790748}
   - component: {fileID: 385790750}
   - component: {fileID: 385790749}
+  - component: {fileID: 385790752}
+  - component: {fileID: 385790751}
   m_Layer: 5
   m_Name: BombImage
   m_TagString: Untagged
@@ -624,6 +626,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385790747}
   m_CullTransparentMesh: 1
+--- !u!114 &385790751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385790747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17c1b590c3262484c8313d0ca0bab996, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &385790752
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385790747}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9dac5cefa4846bb4787030105c11388e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &430877462
 GameObject:
   m_ObjectHideFlags: 0
@@ -3861,6 +3897,8 @@ GameObject:
   - component: {fileID: 1381176912}
   - component: {fileID: 1381176914}
   - component: {fileID: 1381176913}
+  - component: {fileID: 1381176916}
+  - component: {fileID: 1381176915}
   m_Layer: 5
   m_Name: BombImage
   m_TagString: Untagged
@@ -3925,6 +3963,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381176911}
   m_CullTransparentMesh: 1
+--- !u!114 &1381176915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381176911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17c1b590c3262484c8313d0ca0bab996, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1381176916
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381176911}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9dac5cefa4846bb4787030105c11388e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1409827759
 GameObject:
   m_ObjectHideFlags: 0
@@ -4015,6 +4087,8 @@ GameObject:
   - component: {fileID: 1442321451}
   - component: {fileID: 1442321453}
   - component: {fileID: 1442321452}
+  - component: {fileID: 1442321455}
+  - component: {fileID: 1442321454}
   m_Layer: 5
   m_Name: BombImage
   m_TagString: Untagged
@@ -4079,6 +4153,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442321450}
   m_CullTransparentMesh: 1
+--- !u!114 &1442321454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442321450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17c1b590c3262484c8313d0ca0bab996, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1442321455
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442321450}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9dac5cefa4846bb4787030105c11388e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1485185706
 GameObject:
   m_ObjectHideFlags: 0
@@ -4155,6 +4263,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1485185706}
   m_CullTransparentMesh: 1
+--- !u!1 &1525904919 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3893861683281288529, guid: 259fc37d17547af4a99332ede38067b1, type: 3}
+  m_PrefabInstance: {fileID: 1726808184}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1726808184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4246,6 +4359,7 @@ MonoBehaviour:
   animator: {fileID: 1746219473}
   firePoint: {fileID: 1979419200}
   laserPrefab: {fileID: 8289783087127092447, guid: 6a576287c719b5542917e275714e636a, type: 3}
+  shootCooldown: 0.5
 --- !u!212 &1746219471
 SpriteRenderer:
   m_ObjectHideFlags: 0
