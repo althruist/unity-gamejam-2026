@@ -5,14 +5,13 @@ public class BombPlacer : MonoBehaviour
     public GameObject bombPrefab;
     public GameObject crossBombPrefab;
     public GameObject plusBombPrefab;
-    
 
     void Update()
     {
         if (ShopManager.Instance.selectedBomb == BombType.None)
             return;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonUp(0)) // release instead of click
         {
             TryPlaceBomb();
         }
@@ -26,11 +25,10 @@ public class BombPlacer : MonoBehaviour
 
         if (hit.collider != null)
         {
-            
             if (hit.collider.GetComponent<NormalTile>())
             {
                 PlaceBomb(hit.collider.transform.position);
-                Destroy(hit.collider.gameObject); // remove tile
+                Destroy(hit.collider.gameObject);
 
                 ShopManager.Instance.UseBomb(ShopManager.Instance.selectedBomb);
             }

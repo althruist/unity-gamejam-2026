@@ -13,7 +13,6 @@ public class ShopManager : MonoBehaviour
 
     public void SelectBomb(BombType type)
     {
-        // Check if player has bombs
         if (GetAmount(type) <= 0)
             return;
 
@@ -41,6 +40,11 @@ public class ShopManager : MonoBehaviour
             case BombType.PlusBomb: GameData.plusBombAmount--; break;
         }
 
-        selectedBomb = BombType.None; // reset after placing
+        selectedBomb = BombType.None;
+    }
+
+    public void ClearSelection()
+    {
+        selectedBomb = BombType.None;
     }
 }

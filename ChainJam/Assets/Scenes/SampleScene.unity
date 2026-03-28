@@ -364,6 +364,7 @@ GameObject:
   - component: {fileID: 226030676}
   - component: {fileID: 226030677}
   - component: {fileID: 226030678}
+  - component: {fileID: 226030679}
   m_Layer: 5
   m_Name: PlusBombText
   m_TagString: Untagged
@@ -483,6 +484,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltip: {fileID: 2010320768}
   message: Plus Bomb
+--- !u!114 &226030679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226030672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13654e89ea5b0454289ca78d42bb3a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombType: 3
+  iconImage: {fileID: 2099146044}
 --- !u!1 &375358258
 GameObject:
   m_ObjectHideFlags: 0
@@ -1261,6 +1276,7 @@ GameObject:
   - component: {fileID: 1300643660}
   - component: {fileID: 1300643659}
   - component: {fileID: 1300643661}
+  - component: {fileID: 1300643662}
   m_Layer: 5
   m_Name: RowBombText
   m_TagString: Untagged
@@ -1380,6 +1396,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltip: {fileID: 2010320768}
   message: Normal Bomb
+--- !u!114 &1300643662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300643655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13654e89ea5b0454289ca78d42bb3a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombType: 1
+  iconImage: {fileID: 375358260}
 --- !u!1 &1361077603
 GameObject:
   m_ObjectHideFlags: 0
@@ -3200,6 +3230,7 @@ GameObject:
   - component: {fileID: 1527061175}
   - component: {fileID: 1527061176}
   - component: {fileID: 1527061177}
+  - component: {fileID: 1527061178}
   m_Layer: 5
   m_Name: CrossBombText
   m_TagString: Untagged
@@ -3319,6 +3350,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltip: {fileID: 2010320768}
   message: Cross Bomb
+--- !u!114 &1527061178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527061171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13654e89ea5b0454289ca78d42bb3a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombType: 2
+  iconImage: {fileID: 1081364876}
 --- !u!1 &1564929296
 GameObject:
   m_ObjectHideFlags: 0
