@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 452404890}
   - component: {fileID: 452404889}
+  - component: {fileID: 452404891}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -148,11 +149,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b38e37020a44c4aa7969ed3d593959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridWidth: 20
-  gridHeight: 20
+  gridLenght: 20
   normalTile: {fileID: 3311294792965486401, guid: c3539236cebbb5144b190b740c2bca40, type: 3}
   energyTile: {fileID: 4585459777214461848, guid: 349d0f47de5b91443a4eb0f99622a71f, type: 3}
   fuelTile: {fileID: 8715387742681510453, guid: 2fcb6001cf32b30409282e359133d6f5, type: 3}
+  bombTile: {fileID: 4949759581211517523, guid: 029ca24a48f5c1c4a9178f4a2ee61757, type: 3}
+  crossBombTile: {fileID: 4426137167630340681, guid: 9602268c086c67946a1b451bc719fb9e, type: 3}
+  plusBombTile: {fileID: 5997655175523389426, guid: 049daaa3406a10e48b5fb70ed3a98b35, type: 3}
+  bombCrateTile: {fileID: 7055375466370783747, guid: 6cb0f8aa487b0a649a834b230f96862f, type: 3}
+  crossBombCrateTile: {fileID: 4449903190569846778, guid: 4f9efd2d1a996834883069064150aa2d, type: 3}
+  plusBombCrateTile: {fileID: 5348567568541925606, guid: f79187288c90b654aa03875f030da5ef, type: 3}
+  natBombTile: {fileID: 4949759581211517523, guid: 0fe84569c96d37041be594dd62d7eaff, type: 3}
+  natCrossBombTile: {fileID: 4426137167630340681, guid: d5d773c5a1afff3408328a9ed960c9d2, type: 3}
+  natPlusBombTile: {fileID: 5997655175523389426, guid: 9b41e19db7ffd6846ac86bd698dcef0c, type: 3}
 --- !u!4 &452404890
 Transform:
   m_ObjectHideFlags: 0
@@ -162,12 +171,24 @@ Transform:
   m_GameObject: {fileID: 452404888}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8445172, y: -0.44025466, z: 0.03973891}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &452404891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452404888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bbfe5bce9f714444a3a3921f20231e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1251482656
 GameObject:
   m_ObjectHideFlags: 0

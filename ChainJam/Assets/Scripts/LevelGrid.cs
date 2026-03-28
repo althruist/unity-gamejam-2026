@@ -3,23 +3,33 @@ using UnityEngine.Tilemaps;
 
 enum GridTileType
 {
-    Normal,
-    Energy,
-    Fuel
+    Normal, Energy, Fuel,
+    Bomb, CrossBomb, PlusBomb,
+    BombCrate, CrossBombCrate, PlusBombCrate,
+    NatBomb, NatCrossBomb, NatPlusBomb
 }
 
 
 public class LevelGrid : MonoBehaviour
 {
-    public int gridWidth = 0;
-    public int gridHeight = 0;
+    public int gridLenght = 0;
     float tileScale = 1;
-    Vector2 gridOffset = new Vector2(-3.5f, -4.5f); 
+    Vector2 gridOffset = new Vector2(-4f, -5f);
+    Vector2 tileOffset = new Vector2(0.5f, 0.5f);
 
     //public Tilemap gridMap;
     public GameObject normalTile;
     public GameObject energyTile;
     public GameObject fuelTile;
+    public GameObject bombTile;
+    public GameObject crossBombTile;
+    public GameObject plusBombTile;
+    public GameObject bombCrateTile;
+    public GameObject crossBombCrateTile;
+    public GameObject plusBombCrateTile;
+    public GameObject natBombTile;
+    public GameObject natCrossBombTile;
+    public GameObject natPlusBombTile;
 
     private GridTileType[,] grid; 
 
@@ -29,60 +39,70 @@ public class LevelGrid : MonoBehaviour
         CreateGrid();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     void CreateGrid()
     {
-        //tileWidth = 1;
-        //tileHeight = 1;
+        Camera.main.orthographicSize = 5 * ((float) gridLenght / 10.0f);
 
 
-        grid = new GridTileType[gridWidth, gridHeight];
+        grid = new GridTileType[gridLenght, gridLenght];
 
-        for (int w = 0; w < gridWidth; w++)
+        for (int w = 0; w < gridLenght; w++)
         {
-            for (int h = 0; h < gridHeight; h++)
+            for (int h = 0; h < gridLenght; h++)
             {
                 grid[w, h] = GridTileType.Normal;
             }
         }
 
-        grid[3, 3] = GridTileType.Fuel;
-        grid[4, 4] = GridTileType.Energy;
+        //grid[3, 3] = GridTileType.Fuel;
+        grid[7, 16] = GridTileType.CrossBomb;
+        grid[5, 5] = GridTileType.CrossBomb;
+        grid[5, 16] = GridTileType.CrossBomb;
 
 
-        for (int w = 0; w < gridWidth; w++)
+        for (int w = 0; w < gridLenght; w++)
         {
-            for (int h = 0; h < gridHeight; h++)
+            for (int h = 0; h < gridLenght; h++)
             {
-                GameObject instaTile;
-                switch (grid[w, h])
-                {
-                    case GridTileType.Normal:
-                        instaTile = normalTile;
-                        break;
-                    case GridTileType.Energy:
-                        instaTile = energyTile;
-                        break;
-                    case GridTileType.Fuel:
-                        instaTile = fuelTile;
-                        break;
-                    default:
-                        instaTile = normalTile;
-                        break;
-                }
-
-                Instantiate(instaTile, new Vector2(w * tileScale, h * tileScale) + gridOffset, Quaternion.identity);
-                //instaTile.transform.localScale = new Vector3(
-                //    10 / gridWidth,
-                //    10 / gridHeight,
-                //    instaTile.transform.localScale.z);
+                Instantiate(GetTileType(grid[w, h]), 
+                    new Vector2(w * tileScale, h * tileScale) + (gridOffset * ((float) gridLenght / 10.0f)) + tileOffset,
+                    Quaternion.identity, this.transform);
             }
+        }
+    }
+
+
+    GameObject GetTileType(GridTileType gridType)
+    {
+        switch (gridType)
+        {
+            case GridTileType.Normal:
+                return normalTile;
+            case GridTileType.Energy:
+                return energyTile;
+            case GridTileType.Fuel:
+                return fuelTile;
+            case GridTileType.Bomb:
+                return bombTile;
+            case GridTileType.CrossBomb:
+                return crossBombTile;
+            case GridTileType.PlusBomb:
+                return plusBombTile;
+            case GridTileType.BombCrate:
+                return bombCrateTile;
+            case GridTileType.CrossBombCrate:
+                return crossBombCrateTile;
+            case GridTileType.PlusBombCrate:
+                return plusBombCrateTile;
+            case GridTileType.NatBomb:
+                return natBombTile;
+            case GridTileType.NatCrossBomb:
+                return natCrossBombTile;
+            case GridTileType.NatPlusBomb:
+                return natPlusBombTile;
+            default:
+                return normalTile;
         }
     }
 }
