@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ToolTipManager : MonoBehaviour
 {
@@ -15,9 +16,12 @@ public class ToolTipManager : MonoBehaviour
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 
-    public void Show(string message)
+    public void Show(string message, Color? cardColor = null, Color? textColor = null)
     {
+        Debug.Log(message);
         panel.SetActive(true);
+        panel.GetComponent<Image>().color = cardColor ?? Color.white;
+        text.color = textColor ?? Color.black;
         text.text = message;
 
         Cursor.SetCursor(hoverCursor, hotspot, CursorMode.Auto);
@@ -32,6 +36,6 @@ public class ToolTipManager : MonoBehaviour
 
     void Update()
     {
-        panel.transform.position = Input.mousePosition + new Vector3(40, 10);
+        panel.transform.position = Input.mousePosition + new Vector3(45, 35);
     }
 }
