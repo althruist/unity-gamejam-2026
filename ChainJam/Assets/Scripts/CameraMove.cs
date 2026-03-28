@@ -8,7 +8,7 @@ public class CameraMove : MonoBehaviour
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
 
-        // Move camera on X axis based on scroll
-        transform.position += new Vector3(scroll * scrollSpeed, 0f, 0f);
+        float newX = Mathf.Clamp(transform.position.x + scroll * scrollSpeed, 0f,GameData.gridLenght-10);
+        transform.position = new Vector3(newX, transform.position.y, transform.position.z);
     }
 }

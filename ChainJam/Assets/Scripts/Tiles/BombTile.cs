@@ -8,7 +8,7 @@ public class BombTile : BaseBombTile
 
         RaycastHit2D[] hits = Physics2D.BoxCastAll(
             transform.position,
-            new Vector2((bombLevel * 2) - 1, (bombLevel * 2) - 1),
+            new Vector2((GameData.bombLevel * 2) - 1, (GameData.bombLevel * 2) - 1),
             0f,
             Vector2.zero
         );
