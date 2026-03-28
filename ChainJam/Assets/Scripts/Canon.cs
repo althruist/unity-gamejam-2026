@@ -34,13 +34,13 @@ public class Canon : MonoBehaviour
     {
         Vector3 camPos = Camera.main.transform.position;
 
-        float scaleFactor = (float)GameData.gridLenght / 10.0f;
+        
 
         // Position (your existing logic, fixed syntax)
-        transform.position = camPos + new Vector3(canonOffset.x, canonOffset.y, 10f) * scaleFactor;
+        transform.position = camPos + new Vector3(canonOffset.x, canonOffset.y, 10f) ;
 
         
-        transform.localScale = Vector3.one * scaleFactor /2;
+        
     }
 
     public void SpawnBullet()
