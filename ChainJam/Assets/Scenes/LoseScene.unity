@@ -420,7 +420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b967c51dba5d4640babb93c410fb478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameScreen: SampleScene
+  gameScreen: Gameplay
   mainMenuScreen: MainMenu
 --- !u!4 &407382690
 Transform:
