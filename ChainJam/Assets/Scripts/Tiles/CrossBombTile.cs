@@ -1,57 +1,29 @@
 using UnityEngine;
 
-public class CrossBombTile : MonoBehaviour, IActionTile
+public class CrossBombTile : BaseBombTile
 {
-    public int bombLevel = 1;
-
-    public void Action()
+    protected override void Explode()
     {
-        GetComponent<BoxCollider2D>().enabled = false;
+        DisableCollider();
 
         for (int i = 1; i <= bombLevel; i++)
         {
-            RaycastHit2D hitTL = Physics2D.Raycast(transform.position + new Vector3(-i,i,0), Vector2.down, 0.1f);
-
-            if (hitTL && hitTL.collider.tag == "Tile")
-            {
-                hitTL.collider.GetComponent<IActionTile>().Action();
-            }
-
-            RaycastHit2D hitTR = Physics2D.Raycast(transform.position + new Vector3(i, i, 0), Vector2.down, 0.1f);
-
-            if (hitTR && hitTR.collider.tag == "Tile")
-            {
-                hitTR.collider.GetComponent<IActionTile>().Action();
-            }
-
-            RaycastHit2D hitBL = Physics2D.Raycast(transform.position + new Vector3(-i, -i, 0), Vector2.down, 0.1f);
-
-            if (hitBL && hitBL.collider.tag == "Tile")
-            {
-                hitBL.collider.GetComponent<IActionTile>().Action();
-            }
-
-            RaycastHit2D hitBR = Physics2D.Raycast(transform.position + new Vector3(i, -i, 0), Vector2.down, 0.1f);
-
-            if (hitBR && hitBR.collider.tag == "Tile")
-            {
-                hitBR.collider.GetComponent<IActionTile>().Action();
-            }
-
+            Check(new Vector3(-i, i, 0));
+            Check(new Vector3(i, i, 0));
+            Check(new Vector3(-i, -i, 0));
+            Check(new Vector3(i, -i, 0));
         }
-        Destroy(gameObject);
     }
 
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    void Check(Vector3 offset)
     {
+        RaycastHit2D hit = Physics2D.Raycast(
+            transform.position + offset,
+            Vector2.down,
+            0.1f
+        );
 
-        Debug.Log("Normal tile hit");
-        if (collision.gameObject.CompareTag("Laser"))
-        {
-            Action();
-
-        }
-
+        if (hit.collider != null)
+            TriggerTile(hit.collider);
     }
 }

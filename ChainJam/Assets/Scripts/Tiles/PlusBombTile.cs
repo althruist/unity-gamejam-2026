@@ -1,46 +1,33 @@
 using UnityEngine;
 
-public class PlusBombTile : MonoBehaviour, IActionTile
+public class PlusBombTile : BaseBombTile
 {
-    public int bombLevel = 1;
-
-    public void Action()
+    protected override void Explode()
     {
-        RaycastHit2D[] hitsVert = Physics2D.RaycastAll(transform.position + (Vector3.up * (bombLevel )), Vector2.down, (bombLevel * 2));
-        RaycastHit2D[] hitsHori = Physics2D.RaycastAll(transform.position + (Vector3.left * (bombLevel )), Vector2.right, (bombLevel * 2));
+        DisableCollider();
 
-        GetComponent<BoxCollider2D>().enabled = false;
+        RaycastHit2D[] hitsVert = Physics2D.RaycastAll(
+            transform.position + (Vector3.up * bombLevel),
+            Vector2.down,
+            bombLevel * 2
+        );
 
-        for (int i = hitsVert.Length - 1; i >= 0; i--)
+        RaycastHit2D[] hitsHori = Physics2D.RaycastAll(
+            transform.position + (Vector3.left * bombLevel),
+            Vector2.right,
+            bombLevel * 2
+        );
+
+        foreach (var hit in hitsVert)
         {
-            if (hitsVert[i] && hitsVert[i].collider.tag == "Tile")
-            {
-                hitsVert[i].collider.GetComponent<IActionTile>().Action();
-                //Debug.Log(i);
-            }
+            if (hit.collider != null)
+                TriggerTile(hit.collider);
         }
 
-        for (int i = hitsHori.Length - 1; i >= 0; i--)
+        foreach (var hit in hitsHori)
         {
-            if (hitsHori[i] && hitsHori[i].collider.tag == "Tile")
-            {
-                hitsHori[i].collider.GetComponent<IActionTile>().Action();
-                //Debug.Log(i);
-            }
+            if (hit.collider != null)
+                TriggerTile(hit.collider);
         }
-
-        Destroy(gameObject);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-
-        Debug.Log("Normal tile hit");
-        if (collision.gameObject.CompareTag("Laser"))
-        {
-            Action();
-
-        }
-
     }
 }

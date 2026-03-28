@@ -1,35 +1,22 @@
 using UnityEngine;
 
-public class BombTile : MonoBehaviour, IActionTile
+public class BombTile : BaseBombTile
 {
-    public int bombLevel = 1;
-
-    public void Action()
+    protected override void Explode()
     {
-        RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, new Vector2((bombLevel * 2) - 1 , (bombLevel * 2) - 1), 0.0f, Vector2.zero);
+        DisableCollider();
 
-        GetComponent<BoxCollider2D>().enabled = false;
-        for (int i = hits.Length - 1; i >= 0; i--)
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(
+            transform.position,
+            new Vector2((bombLevel * 2) - 1, (bombLevel * 2) - 1),
+            0f,
+            Vector2.zero
+        );
+
+        foreach (var hit in hits)
         {
-            if (hits[i] && hits[i].collider.tag == "Tile")
-            {
-                hits[i].collider.GetComponent<IActionTile>().Action();
-                //Debug.Log(i);
-            }
+            if (hit.collider != null)
+                TriggerTile(hit.collider);
         }
-        Destroy(gameObject);
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-
-        Debug.Log("Normal tile hit");
-        if (collision.gameObject.CompareTag("Laser"))
-        {
-            Action();
-
-        }
-
     }
 }
