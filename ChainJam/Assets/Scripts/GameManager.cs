@@ -15,9 +15,9 @@ public class GameManager : Singleton<GameManager>
     public int currentChain;
 
 
-    public Image card1Top;
-    public TextMeshProUGUI card1LevelIncrease;
-    public Image card1Bot;
+ 
+    
+    
 
 
     public TextMeshProUGUI card1BombLevelText;
@@ -25,13 +25,15 @@ public class GameManager : Singleton<GameManager>
     public TextMeshProUGUI card3BombLevelText;
     public TextMeshPro tileExplosionText;
 
-    public Image card2Top;
+    public TextMeshProUGUI card1LevelIncrease;
     public TextMeshProUGUI card2LevelIncrease;
-    public Image card2Bot;
-
-
     public TextMeshProUGUI card3LevelIncrease;
-    public Image card3Bot;
+
+
+    public TextMeshProUGUI card1Leveldescription;
+    public TextMeshProUGUI card2Leveldescription;
+    public TextMeshProUGUI card3Leveldescription;
+
 
 
 
@@ -40,9 +42,7 @@ public class GameManager : Singleton<GameManager>
     public Sprite nextLevelBombs;
     public Sprite nextLevelCrates;
 
-    public Sprite upgradeBombBackground;
-    public Sprite upgradeCrossBombBackground;
-    public Sprite upgradePlusBombBackground;
+
     public Sprite upgradePlusBombbomb;
     public Sprite upgradeCrossBombbomb;
     public Sprite upgradeBombbomb;
@@ -55,6 +55,10 @@ public class GameManager : Singleton<GameManager>
     public Image card1BombImg;
     public Image card2BombImg;
     public Image card3BombImg;
+
+    public Image card1nextlevelimg;
+    public Image card2nextlevelimg;
+    public Image card3nextlevelimg;
 
     int card1LevelIncreaseValue = 0;
     int card2LevelIncreaseValue = 0;
@@ -131,33 +135,37 @@ public class GameManager : Singleton<GameManager>
         levelCards.SetActive(true);
 
         card1LevelValue = Random.Range(0, 4);
-        card1Top.sprite = GetNextLevelSprite(card1LevelValue);
+        
         card2LevelValue = Random.Range(0, 4);
-        card2Top.sprite = GetNextLevelSprite(card2LevelValue);
+        
         card3LevelValue = Random.Range(0, 4);
 
 
         card1LevelIncreaseValue = Random.Range(1, 4);
-        card1LevelIncrease.text = card1LevelIncreaseValue.ToString();
+        card1LevelIncrease.text = "level Size +: " + card1LevelIncreaseValue.ToString();
         card2LevelIncreaseValue = Random.Range(1, 4);
-        card2LevelIncrease.text = card2LevelIncreaseValue.ToString();
+        card2LevelIncrease.text = "level Size +: " + card2LevelIncreaseValue.ToString();
         card3LevelIncreaseValue = Random.Range(1, 4);
-        card3LevelIncrease.text = card3LevelIncreaseValue.ToString();
+        card3LevelIncrease.text = "level Size +: " + card3LevelIncreaseValue.ToString();
 
         card1BombUpgradeValue = Random.Range(0, 3);
-        card1Bot.sprite = GetBombUpgradeSprite(card1BombUpgradeValue);
+        
         card1BombImg.sprite = GetBombUpgradeBombSprite(card1BombUpgradeValue);
         card2BombUpgradeValue = Random.Range(0, 3);
-        card2Bot.sprite = GetBombUpgradeSprite(card2BombUpgradeValue);
         card2BombImg.sprite = GetBombUpgradeBombSprite(card2BombUpgradeValue);
         card3BombUpgradeValue = Random.Range(0, 3);
-        card3Bot.sprite = GetBombUpgradeSprite(card3BombUpgradeValue);
         card3BombImg.sprite = GetBombUpgradeBombSprite(card3BombUpgradeValue);
 
 
         card1BombLevelText.text = GetBombLevelText(card1BombUpgradeValue);
         card2BombLevelText.text = GetBombLevelText(card2BombUpgradeValue);
         card3BombLevelText.text = GetBombLevelText(card3BombUpgradeValue);
+
+
+
+        card1nextlevelimg.sprite = GetNextLevelSprite(card1LevelValue);
+        card2nextlevelimg.sprite = GetNextLevelSprite(card2LevelValue);
+        card3nextlevelimg.sprite = GetNextLevelSprite(card3LevelValue);
     }
 
 
@@ -178,20 +186,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    Sprite GetBombUpgradeSprite(int num)
-    {
-        switch (num)
-        {
-            case 0:
-                return upgradeBombBackground;
-            case 1:
-                return upgradeCrossBombBackground;
-            case 2:
-                return upgradePlusBombBackground;
-            default:
-                return upgradeBombBackground;
-        }
-    }
+
     Sprite GetBombUpgradeBombSprite(int num)
     {
         switch (num)
