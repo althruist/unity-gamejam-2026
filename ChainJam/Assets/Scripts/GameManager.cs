@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,13 +13,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject levelCards;
     public int currentChain;
     public GameState gameState;
-
-
-
-
-
-
-
+    public AudioClip ambience;
     public TextMeshProUGUI card1BombLevelText;
     public TextMeshProUGUI card2BombLevelText;
     public TextMeshProUGUI card3BombLevelText;
@@ -78,6 +71,9 @@ public class GameManager : Singleton<GameManager>
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gameObject.GetComponent<AudioSource>().clip = ambience;
+        gameObject.GetComponent<AudioSource>().loop = true;
+        gameObject.GetComponent<AudioSource>().Play();
         gameState = GameState.Playing;
         GameData.energy = 50;
         GameData.fuel = 0;
