@@ -34,7 +34,7 @@ public class GameManager : Singleton<GameManager>
     public TextMeshProUGUI card1Leveldescription;
     public TextMeshProUGUI card2Leveldescription;
     public TextMeshProUGUI card3Leveldescription;
-
+    
 
 
 
