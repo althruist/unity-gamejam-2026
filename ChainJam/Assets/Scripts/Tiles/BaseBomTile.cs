@@ -59,6 +59,7 @@ public abstract class BaseBombTile : MonoBehaviour, IActionTile
         if (collision.CompareTag("Laser"))
         {
             Action();
+            
         }
     }
 }

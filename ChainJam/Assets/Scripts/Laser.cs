@@ -17,15 +17,20 @@ public class Laser : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        Debug.Log("Normal tile hit");
-        if (collision.gameObject.CompareTag("Tile"))
+        if (collision.CompareTag("Tile"))
         {
-            lifetime--; 
+            Debug.Log("Tile hit");
 
+            // If it's a bomb, destroy laser immediately
+            if (collision.GetComponent<BaseBombTile>() != null)
+            {
+                Destroy(gameObject);
+                return;
+            }
 
+            // normal tile logic
+            lifetime--;
         }
-
     }
     void Update()
     {

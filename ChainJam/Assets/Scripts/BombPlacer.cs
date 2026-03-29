@@ -8,7 +8,7 @@ public class BombPlacer : MonoBehaviour
 
     void Update()
     {
-        if (ShopManager.Instance.selectedBomb == BombType.None)
+        if (BombManager.Instance.selectedBomb == BombType.None)
             return;
 
         if (Input.GetMouseButtonUp(0)) // release instead of click
@@ -30,14 +30,14 @@ public class BombPlacer : MonoBehaviour
                 PlaceBomb(hit.collider.transform.position);
                 Destroy(hit.collider.gameObject);
 
-                ShopManager.Instance.UseBomb(ShopManager.Instance.selectedBomb);
+                BombManager.Instance.UseBomb(BombManager.Instance.selectedBomb);
             }
         }
     }
 
     void PlaceBomb(Vector2 pos)
     {
-        switch (ShopManager.Instance.selectedBomb)
+        switch (BombManager.Instance.selectedBomb)
         {
             case BombType.Bomb:
                 Instantiate(bombPrefab, pos, Quaternion.identity);

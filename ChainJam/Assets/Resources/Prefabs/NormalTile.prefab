@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4555784004829411635}
   - component: {fileID: 5915872844777836827}
   - component: {fileID: 3385609203255081244}
+  - component: {fileID: 3699713983074903644}
   m_Layer: 0
   m_Name: NormalTile
   m_TagString: Tile
@@ -101,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c802e120040df479dc310625583419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 3699713983074903644}
 --- !u!61 &3385609203255081244
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,3 +149,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &3699713983074903644
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3311294792965486401}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8e493071c5807ed46b6f65fc61a75b46, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

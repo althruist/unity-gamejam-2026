@@ -2,10 +2,24 @@ using UnityEngine;
 
 public class NormalTile : MonoBehaviour, IActionTile
 {
+
+    public Animator anim;
     public void Action()
     {
-        Destroy(gameObject);
+        anim.SetTrigger("explode");
     }
+
+
+
+    public void OnExplodeAnimationEnd()
+    {
+        Debug.Log("EXPLOSION EVENT FIRED");
+
+        Destroy(gameObject);
+
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
 

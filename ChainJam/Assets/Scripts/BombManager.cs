@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class ShopManager : MonoBehaviour
+public class BombManager : MonoBehaviour
 {
-    public static ShopManager Instance;
+    public static BombManager Instance;
 
     public BombType selectedBomb = BombType.None;
 

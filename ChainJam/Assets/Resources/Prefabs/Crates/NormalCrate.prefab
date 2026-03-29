@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5094538611107584058}
   - component: {fileID: -7111322961072364662}
   - component: {fileID: -1053762374383282470}
+  - component: {fileID: 1921305620298152208}
   m_Layer: 0
   m_Name: NormalCrate
   m_TagString: Tile
@@ -101,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb16a61f368473945a98798e2219ae11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 1921305620298152208}
 --- !u!61 &-1053762374383282470
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,3 +149,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &1921305620298152208
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4162076501735133084}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 06cfc81904a6f9c4c92fdb0ff0dbb1a4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
