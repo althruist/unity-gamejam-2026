@@ -145,11 +145,11 @@ public class GameManager : Singleton<GameManager>
 
 
         card1LevelIncreaseValue = Random.Range(1, 4);
-        card1LevelIncrease.text = "level Size +: " + card1LevelIncreaseValue.ToString();
+        card1LevelIncrease.text = "level Size + " + card1LevelIncreaseValue.ToString();
         card2LevelIncreaseValue = Random.Range(1, 4);
-        card2LevelIncrease.text = "level Size +: " + card2LevelIncreaseValue.ToString();
+        card2LevelIncrease.text = "level Size + " + card2LevelIncreaseValue.ToString();
         card3LevelIncreaseValue = Random.Range(1, 4);
-        card3LevelIncrease.text = "level Size +: " + card3LevelIncreaseValue.ToString();
+        card3LevelIncrease.text = "level Size + " + card3LevelIncreaseValue.ToString();
 
         card1BombUpgradeValue = Random.Range(0, 3);
         
@@ -160,9 +160,9 @@ public class GameManager : Singleton<GameManager>
         card3BombImg.sprite = GetBombUpgradeBombSprite(card3BombUpgradeValue);
 
 
-        card1BombLevelText.text = GetBombLevelText(card1BombUpgradeValue);
-        card2BombLevelText.text = GetBombLevelText(card2BombUpgradeValue);
-        card3BombLevelText.text = GetBombLevelText(card3BombUpgradeValue);
+        card1BombLevelText.text = "Level Up";
+        card2BombLevelText.text = "Level Up";
+        card3BombLevelText.text = "Level Up";
 
 
 

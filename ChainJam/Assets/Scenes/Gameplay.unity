@@ -3221,10 +3221,10 @@ MonoBehaviour:
   card1Leveldescription: {fileID: 1556126469}
   card2Leveldescription: {fileID: 1665551628}
   card3Leveldescription: {fileID: 2101160549}
-  nextLevelNormal: {fileID: -8659971436437294112, guid: ba33f3ded24e1cb468128d8249a6bcea, type: 3}
-  nextLevelEneFuel: {fileID: 1397311930, guid: ba33f3ded24e1cb468128d8249a6bcea, type: 3}
-  nextLevelBombs: {fileID: 1236146300, guid: ba33f3ded24e1cb468128d8249a6bcea, type: 3}
-  nextLevelCrates: {fileID: 670175687, guid: ba33f3ded24e1cb468128d8249a6bcea, type: 3}
+  nextLevelNormal: {fileID: -2182124076254010665, guid: e3c9eb67aa4666f4ab92a31c3a894a23, type: 3}
+  nextLevelEneFuel: {fileID: 3869275551672029106, guid: 1845fc20582b39443925832779df15cc, type: 3}
+  nextLevelBombs: {fileID: 7692333296216630994, guid: b68b79cc4d916ec4d984efb520f8c20d, type: 3}
+  nextLevelCrates: {fileID: 2098884010202783158, guid: bfce13519bc6ffe49a4e7118d8327780, type: 3}
   upgradePlusBombbomb: {fileID: -7935421000811272927, guid: efa1ca214f0e7804ba628caa1fcca7f7, type: 3}
   upgradeCrossBombbomb: {fileID: 1249140702879814685, guid: ff864cdee2f87934b9065fcde8978fc1, type: 3}
   upgradeBombbomb: {fileID: 7692333296216630994, guid: b68b79cc4d916ec4d984efb520f8c20d, type: 3}
