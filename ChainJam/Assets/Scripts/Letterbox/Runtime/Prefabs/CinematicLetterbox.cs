@@ -8,6 +8,9 @@ public class CinematicLetterbox : MonoBehaviour
     [Header("Borders")]
     public RectTransform TopBorder;
     public RectTransform BottomBorder;
+    public AudioClip transitionOpenSound;
+    public AudioClip transitionCloseSound;
+    private AudioSource audioSource;
 
     [Header("Settings")]
     [SerializeField] private float _duration = 0.5f;
@@ -58,6 +61,7 @@ public class CinematicLetterbox : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         if (TopBorder != null)
             TopBorder.anchoredPosition = new Vector2(TopBorder.anchoredPosition.x, topBorderOpenPos);
 
@@ -77,6 +81,15 @@ public class CinematicLetterbox : MonoBehaviour
         {
             float targetY = active ? bottomBorderClosedPos : bottomBorderOpenPos;
             BottomBorder.DOAnchorPosY(targetY, _duration).SetEase(_easeType);
+        }
+
+        if (audioSource != null)
+        {
+            AudioClip clipToPlay = active ? transitionCloseSound : transitionOpenSound;
+            if (clipToPlay != null)
+            {
+                audioSource.PlayOneShot(clipToPlay);
+            }
         }
     }
 }
