@@ -166,6 +166,11 @@ public class GameManager : Singleton<GameManager>
         card1nextlevelimg.sprite = GetNextLevelSprite(card1LevelValue);
         card2nextlevelimg.sprite = GetNextLevelSprite(card2LevelValue);
         card3nextlevelimg.sprite = GetNextLevelSprite(card3LevelValue);
+
+
+        card1Leveldescription.text = GetLevelDescription(card1LevelValue);
+        card2Leveldescription.text = GetLevelDescription(card2LevelValue);
+        card3Leveldescription.text = GetLevelDescription(card3LevelValue);
     }
 
 
@@ -337,6 +342,22 @@ public class GameManager : Singleton<GameManager>
             }
         }
         return maxChain;
+    }
+    string GetLevelDescription(int levelType)
+    {
+        switch (levelType)
+        {
+            case 0:
+                return "Standard level with normal tiles.";
+            case 1:
+                return "More energy & fuel spawns.";
+            case 2:
+                return "More bombs available.";
+            case 3:
+                return "More crates to destroy.";
+            default:
+                return "";
+        }
     }
 
     public void DeleteChain(int chainID, int value)
