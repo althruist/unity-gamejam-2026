@@ -25,6 +25,7 @@ public class Laser : MonoBehaviour
         if (GameData.energy <= 0 && GameData.lasersinScene == 0)
         {
             SceneManager.LoadScene("LoseScene");
+            GameData.energy = 50;
             Destroy(gameObject);
         }
     }
