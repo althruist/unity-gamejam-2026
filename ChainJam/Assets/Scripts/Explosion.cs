@@ -14,7 +14,6 @@ public class Explosion : MonoBehaviour
         text = Instantiate(GameManager.Instance.tileExplosionText);
         Animator animator = text.GetComponent<Animator>();
         animator.Play("text_explodeFloat", 0, 0f);
-        Debug.Log("hit");
         if (hasComboEnabled)
         {
             text.SetText($"x{GameManager.Instance.GetChain(GameManager.Instance.currentChain).ToString()}");
