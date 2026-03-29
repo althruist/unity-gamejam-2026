@@ -12,14 +12,14 @@ public class ButtonManager : MonoBehaviour
     private IEnumerator StartGame()
     {
         CinematicLetterbox.Instance.active = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(gameScreen);
     }
 
     private IEnumerator StartMenu()
     {
         CinematicLetterbox.Instance.active = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(mainMenuScreen);
     }
 

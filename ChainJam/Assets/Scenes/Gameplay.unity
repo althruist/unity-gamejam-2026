@@ -2986,6 +2986,7 @@ GameObject:
   - component: {fileID: 1073457732}
   - component: {fileID: 1073457731}
   - component: {fileID: 1073457733}
+  - component: {fileID: 1073457734}
   m_Layer: 5
   m_Name: Card1
   m_TagString: Untagged
@@ -3133,6 +3134,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1073457734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073457728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e5586cb9457bc64aa91c6db35d1c64f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1178847409
 GameObject:
   m_ObjectHideFlags: 0
@@ -3253,6 +3266,9 @@ MonoBehaviour:
   upgradePlusBombbomb: {fileID: -7935421000811272927, guid: efa1ca214f0e7804ba628caa1fcca7f7, type: 3}
   upgradeCrossBombbomb: {fileID: 1249140702879814685, guid: ff864cdee2f87934b9065fcde8978fc1, type: 3}
   upgradeBombbomb: {fileID: 7692333296216630994, guid: b68b79cc4d916ec4d984efb520f8c20d, type: 3}
+  card1: {fileID: 1073457728}
+  card2: {fileID: 1748991928}
+  card3: {fileID: 1484947976}
   card1BombImg: {fileID: 1191638925}
   card2BombImg: {fileID: 1620698290}
   card3BombImg: {fileID: 312693182}
@@ -4494,6 +4510,8 @@ GameObject:
   - component: {fileID: 1484947980}
   - component: {fileID: 1484947979}
   - component: {fileID: 1484947978}
+  - component: {fileID: 1484947981}
+  - component: {fileID: 1484947982}
   m_Layer: 5
   m_Name: Card3
   m_TagString: Untagged
@@ -4619,6 +4637,40 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &1484947981
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484947976}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f98a952081ed5cf4eb92b7b451724014, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1484947982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484947976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e5586cb9457bc64aa91c6db35d1c64f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1535042757
 GameObject:
   m_ObjectHideFlags: 0
@@ -5111,7 +5163,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 240.03, y: 75}
-  m_SizeDelta: {x: 577.876, y: 100}
+  m_SizeDelta: {x: 440, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1556126469
 MonoBehaviour:
@@ -5160,10 +5212,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 55.55
   m_fontSizeBase: 25
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -5556,7 +5608,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 240.03, y: 75}
-  m_SizeDelta: {x: 418.34, y: 100}
+  m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1665551627
 CanvasRenderer:
@@ -5613,10 +5665,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 55.55
   m_fontSizeBase: 25
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -5669,6 +5721,8 @@ GameObject:
   - component: {fileID: 1748991932}
   - component: {fileID: 1748991931}
   - component: {fileID: 1748991930}
+  - component: {fileID: 1748991933}
+  - component: {fileID: 1748991934}
   m_Layer: 5
   m_Name: Card2
   m_TagString: Untagged
@@ -5794,6 +5848,40 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &1748991933
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748991928}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f98a952081ed5cf4eb92b7b451724014, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1748991934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748991928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e5586cb9457bc64aa91c6db35d1c64f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1787401265
 GameObject:
   m_ObjectHideFlags: 0
@@ -7000,7 +7088,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 240.03, y: 75}
-  m_SizeDelta: {x: 577.876, y: 100}
+  m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2101160548
 CanvasRenderer:
@@ -7057,10 +7145,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 55.55
   m_fontSizeBase: 25
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
