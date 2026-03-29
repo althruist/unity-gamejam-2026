@@ -3,31 +3,32 @@ using UnityEngine;
 
 public class FuelTile : MonoBehaviour, IActionTile
 {
-    void Start()
-    {
-        GameManager.Instance.remainingFuelTiles++;
-    }
+
     public Animator anim;
     public void Action(int chainID)
     {
+        if (!gameObject.activeSelf) return;
+
+        GameManager.Instance.remainingFuelTiles--;
+
+        Debug.Log("Fuel tile destroyed. Remaining: " + GameManager.Instance.remainingFuelTiles);
+
         if (GameManager.Instance.GetChain(chainID) > 1)
-            GameData.fuel += 30 * GameManager.Instance.GetChain(chainID);
+            GameData.fuel += 10 * GameManager.Instance.GetChain(chainID);
         else
-        {
-            GameData.fuel += 30;
-        }
+            GameData.fuel += 20;
+
         UIManager.Instance.Modify(UIManager.StatType.Fuel);
+
         anim.SetTrigger("explode");
 
+        // Prevent double triggering
+        GetComponent<Collider2D>().enabled = false;
     }
 
     public void OnExplodeAnimationEnd()
     {
-        //Debug.Log("EXPLOSION EVENT FIRED");
-
         Destroy(gameObject);
-        GameManager.Instance.remainingFuelTiles--;
-
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

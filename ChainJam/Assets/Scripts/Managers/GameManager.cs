@@ -27,7 +27,10 @@ public class GameManager : Singleton<GameManager>
     public TextMeshProUGUI card1Leveldescription;
     public TextMeshProUGUI card2Leveldescription;
     public TextMeshProUGUI card3Leveldescription;
+
+
     public int remainingFuelTiles;
+
 
 
 
@@ -68,6 +71,7 @@ public class GameManager : Singleton<GameManager>
 
 
     string mainScene = "Gameplay";
+    string loseScene = "LoseScene";
 
     public List<Vector2> chainList = new List<Vector2>();
 
@@ -75,71 +79,102 @@ public class GameManager : Singleton<GameManager>
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Debug.Log("GameManager START");
         
+        ResetOil();
+
         gameObject.GetComponent<AudioSource>().clip = ambience;
         gameObject.GetComponent<AudioSource>().loop = true;
         gameObject.GetComponent<AudioSource>().Play();
+        remainingFuelTiles = FindObjectsByType<FuelTile>(FindObjectsSortMode.None).Length;
+        Debug.Log("Starting fuel tiles: " + remainingFuelTiles);
+
+
         gameState = GameState.Playing;
-        
-        
+        Debug.Log("Game State set to PLAYING");
+
 
 
         wall.transform.position = new Vector3(GameData.gridLenght - 2, 0, 0);
         background.transform.position = new Vector3((float)(GameData.gridLenght - 10) / 2, 0, 1);
         background.GetComponent<SpriteRenderer>().size = new Vector2(GameData.gridLenght + 8, 10);
 
+        Debug.Log("Grid Length: " + GameData.gridLenght);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        loadWin();
         if (gameState != GameState.Playing) return;
-        CheckLoseCondition();
+
+        LoadWin();
+        
+        CheckLose();
+
     }
-
-
-
-    void loadWin()
+    void CheckLose()
     {
-        if (gameState == GameState.Playing &&
-            GameData.fuel >= GameData.fuelToWin &&
-            !levelCards.activeSelf)
+        if (remainingFuelTiles <= 0 && GameData.fuel < GameData.fuelToWin)
         {
-            gameState = GameState.Win;
-            CreateLevelCards();
+            Debug.Log("YOU LOSE");
+            gameState = GameState.GameOver; 
+                SceneManager.LoadScene(loseScene);
+
         }
     }
 
 
+
+    void ResetOil()
+    {
+
+        GameData.fuel = 0;
+
+    }
+
     void CreateLevelCards()
     {
+        Debug.Log("Creating Level Cards...");
+
         levelCards.SetActive(true);
+
         card1.GetComponent<Animator>().SetTrigger("Appear");
         card2.GetComponent<Animator>().SetTrigger("Appear");
         card3.GetComponent<Animator>().SetTrigger("Appear");
 
         card1LevelValue = Random.Range(0, 11);
-        
         card2LevelValue = Random.Range(0, 11);
-        
-        card3LevelValue = Random.Range(0,11);
+        card3LevelValue = Random.Range(0, 11);
 
+        Debug.Log($"Card Types: [{card1LevelValue}, {card2LevelValue}, {card3LevelValue}]");
 
         card1LevelIncreaseValue = Random.Range(1, 4);
-        card1LevelIncrease.text = "level Size + " + card1LevelIncreaseValue.ToString();
         card2LevelIncreaseValue = Random.Range(1, 4);
-        card2LevelIncrease.text = "level Size + " + card2LevelIncreaseValue.ToString();
         card3LevelIncreaseValue = Random.Range(1, 4);
-        card3LevelIncrease.text = "level Size + " + card3LevelIncreaseValue.ToString();
+
+        Debug.Log($"Level Increase: [{card1LevelIncreaseValue}, {card2LevelIncreaseValue}, {card3LevelIncreaseValue}]");
 
         card1BombUpgradeValue = Random.Range(0, 3);
-        
-        card1BombImg.sprite = GetBombUpgradeBombSprite(card1BombUpgradeValue);
         card2BombUpgradeValue = Random.Range(0, 3);
-        card2BombImg.sprite = GetBombUpgradeBombSprite(card2BombUpgradeValue);
         card3BombUpgradeValue = Random.Range(0, 3);
+
+        Debug.Log($"Bomb Upgrades: [{card1BombUpgradeValue}, {card2BombUpgradeValue}, {card3BombUpgradeValue}]");
+
+
+
+
+        card1LevelIncrease.text = "level Size + " + card1LevelIncreaseValue.ToString();
+
+        card2LevelIncrease.text = "level Size + " + card2LevelIncreaseValue.ToString();
+
+        card3LevelIncrease.text = "level Size + " + card3LevelIncreaseValue.ToString();
+
+
+
+        card1BombImg.sprite = GetBombUpgradeBombSprite(card1BombUpgradeValue);
+
+        card2BombImg.sprite = GetBombUpgradeBombSprite(card2BombUpgradeValue);
+
         card3BombImg.sprite = GetBombUpgradeBombSprite(card3BombUpgradeValue);
 
 
@@ -217,32 +252,60 @@ public class GameManager : Singleton<GameManager>
 
     public void Card1Button()
     {
+        Debug.Log("Card 1 Selected");
+        if (gameState != GameState.Win) return;
+
+        gameState = GameState.Transition;
+
+
+
+        Debug.Log($"Before -> Grid: {GameData.gridLenght}, FuelToWin: {GameData.fuelToWin}");
+
         SetLevelType(card1LevelValue);
         GameData.gridLenght += card1LevelIncreaseValue;
         UpgradeBomb(card1BombUpgradeValue);
         GameData.fuelToWin *= 2;
 
-        //Debug.Log(card1LevelValue + " " + card1LevelIncreaseValue + " " + card1BombUpgradeValue);
+
+        Debug.Log($"After -> Grid: {GameData.gridLenght}, FuelToWin: {GameData.fuelToWin}");
+
         SceneManager.LoadScene(mainScene);
     }
 
     public void Card2Button()
     {
+        Debug.Log("Card 2 Selected");
+        if (gameState != GameState.Win) return;
+
+        gameState = GameState.Transition;
+
+        Debug.Log($"Before -> Grid: {GameData.gridLenght}, FuelToWin: {GameData.fuelToWin}");
+
         SetLevelType(card2LevelValue);
         GameData.gridLenght += card2LevelIncreaseValue;
         UpgradeBomb(card2BombUpgradeValue);
         GameData.fuelToWin *= 2;
 
-        //Debug.Log(card2LevelValue + " " + card2LevelIncreaseValue + " " + card2BombUpgradeValue);
+        Debug.Log($"After -> Grid: {GameData.gridLenght}, FuelToWin: {GameData.fuelToWin}");
+
         SceneManager.LoadScene(mainScene);
     }
 
     public void Card3Button()
     {
+        Debug.Log("Card 3 Selected");
+        if (gameState != GameState.Win) return;
+
+        gameState = GameState.Transition;
+
+        Debug.Log($"Before -> Grid: {GameData.gridLenght}, FuelToWin: {GameData.fuelToWin}");
+
         SetLevelType(card3LevelValue);
         GameData.gridLenght += card3LevelIncreaseValue;
         UpgradeBomb(card3BombUpgradeValue);
         GameData.fuelToWin *= 2;
+        Debug.Log($"After -> Grid: {GameData.gridLenght}, FuelToWin: {GameData.fuelToWin}");
+
 
         //Debug.Log(card3LevelValue + " " + card3LevelIncreaseValue + " " + card3BombUpgradeValue);
         SceneManager.LoadScene(mainScene);
@@ -250,32 +313,31 @@ public class GameManager : Singleton<GameManager>
 
     void UpgradeBomb(int num)
     {
+        Debug.Log("Upgrading Bomb Type: " + num);
+
         switch (num)
         {
             case 0:
                 if (GameData.bombLevel < 3)
                     GameData.bombLevel++;
 
-                Debug.Log("Bomb level: " + GameData.bombLevel);
+                Debug.Log("Bomb Level now: " + GameData.bombLevel);
                 break;
+
             case 1:
                 if (GameData.crossBombLevel < 3)
                     GameData.crossBombLevel++;
 
-                Debug.Log("cross Bomb level: " + GameData.crossBombLevel);
+                Debug.Log("Cross Bomb Level now: " + GameData.crossBombLevel);
                 break;
+
             case 2:
                 if (GameData.plusBombLevel < 3)
-
                     GameData.plusBombLevel++;
 
-                Debug.Log("plus Bomb level: " + GameData.plusBombLevel);
-                break;
-            default:
-                GameData.bombLevel++;
+                Debug.Log("Plus Bomb Level now: " + GameData.plusBombLevel);
                 break;
         }
-
     }
 
 
@@ -300,17 +362,18 @@ public class GameManager : Singleton<GameManager>
                 break;
         }
     }
-    public void CheckLoseCondition()
+
+
+    void LoadWin()
     {
-        Debug.Log(remainingFuelTiles);
-        if (gameState != GameState.Playing) return;
-
-        if (remainingFuelTiles <= 0 && GameData.fuel < GameData.fuelToWin)
+        if (GameData.fuel >= GameData.fuelToWin && !levelCards.activeSelf)
         {
-            gameState = GameState.GameOver;
-            Debug.Log("Game Over");
-            SceneManager.LoadScene("LoseScene");
+            Debug.Log($"WIN CONDITION MET -> Fuel: {GameData.fuel}/{GameData.fuelToWin}");
 
+            gameState = GameState.Win;
+            Debug.Log("Game State set to WIN");
+
+            CreateLevelCards();
         }
     }
 

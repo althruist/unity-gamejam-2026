@@ -25,7 +25,7 @@ public class ToolTipManager : MonoBehaviour
 
         int level = GetBombLevel(bombType);
 
-        text.text = $"{message} Lv.{level}";
+        text.text = $"{message} Lv{level}";
 
         Cursor.SetCursor(hoverCursor, hotspot, CursorMode.Auto);
     }

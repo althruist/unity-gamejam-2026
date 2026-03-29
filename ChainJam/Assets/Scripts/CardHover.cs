@@ -12,6 +12,6 @@ public class CardHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public void OnPointerExit(PointerEventData eventData)
     {
         gameObject.GetComponent<Animator>().SetBool("IsHovering", false);
-        Debug.Log("Exit hover");
+        //Debug.Log("Exit hover");
     }
 }
