@@ -7,36 +7,54 @@ using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
 {
+
     public GameObject wall;
     public GameObject background;
 
     public GameObject levelCards;
-    public TextMeshPro tileExplosionText;
     public int currentChain;
+
 
     public Image card1Top;
     public TextMeshProUGUI card1LevelIncrease;
     public Image card1Bot;
 
+
+    public TextMeshProUGUI card1BombLevelText;
+    public TextMeshProUGUI card2BombLevelText;
+    public TextMeshProUGUI card3BombLevelText;
+    public TextMeshPro tileExplosionText;
+
     public Image card2Top;
     public TextMeshProUGUI card2LevelIncrease;
     public Image card2Bot;
 
-    public Image card3Top;
+
     public TextMeshProUGUI card3LevelIncrease;
     public Image card3Bot;
+
+
 
     public Sprite nextLevelNormal;
     public Sprite nextLevelEneFuel;
     public Sprite nextLevelBombs;
     public Sprite nextLevelCrates;
-    public Sprite upgradeBomb;
-    public Sprite upgradeCrossBomb;
-    public Sprite upgradePlusBomb;
+
+    public Sprite upgradeBombBackground;
+    public Sprite upgradeCrossBombBackground;
+    public Sprite upgradePlusBombBackground;
+    public Sprite upgradePlusBombbomb;
+    public Sprite upgradeCrossBombbomb;
+    public Sprite upgradeBombbomb;
 
     int card1LevelValue = 0;
     int card2LevelValue = 0;
     int card3LevelValue = 0;
+
+
+    public Image card1BombImg;
+    public Image card2BombImg;
+    public Image card3BombImg;
 
     int card1LevelIncreaseValue = 0;
     int card2LevelIncreaseValue = 0;
@@ -45,6 +63,7 @@ public class GameManager : Singleton<GameManager>
     int card1BombUpgradeValue = 0;
     int card2BombUpgradeValue = 0;
     int card3BombUpgradeValue = 0;
+
 
     string mainScene = "Gameplay";
 
@@ -88,6 +107,23 @@ public class GameManager : Singleton<GameManager>
             CreateLevelCards();
         }
     }
+    string GetBombLevelText(int bombType)
+    {
+        switch (bombType)
+        {
+            case 0: // normal
+                return GameData.bombLevel >= 3 ? "MAX" : GameData.bombLevel.ToString();
+
+            case 1: // cross
+                return GameData.crossBombLevel >= 3 ? "MAX" : GameData.crossBombLevel.ToString();
+
+            case 2: // plus
+                return GameData.plusBombLevel >= 3 ? "MAX" : GameData.plusBombLevel.ToString();
+
+            default:
+                return "";
+        }
+    }
 
 
     void CreateLevelCards()
@@ -99,7 +135,7 @@ public class GameManager : Singleton<GameManager>
         card2LevelValue = Random.Range(0, 4);
         card2Top.sprite = GetNextLevelSprite(card2LevelValue);
         card3LevelValue = Random.Range(0, 4);
-        card3Top.sprite = GetNextLevelSprite(card3LevelValue);
+
 
         card1LevelIncreaseValue = Random.Range(1, 4);
         card1LevelIncrease.text = card1LevelIncreaseValue.ToString();
@@ -110,10 +146,18 @@ public class GameManager : Singleton<GameManager>
 
         card1BombUpgradeValue = Random.Range(0, 3);
         card1Bot.sprite = GetBombUpgradeSprite(card1BombUpgradeValue);
+        card1BombImg.sprite = GetBombUpgradeBombSprite(card1BombUpgradeValue);
         card2BombUpgradeValue = Random.Range(0, 3);
         card2Bot.sprite = GetBombUpgradeSprite(card2BombUpgradeValue);
+        card2BombImg.sprite = GetBombUpgradeBombSprite(card2BombUpgradeValue);
         card3BombUpgradeValue = Random.Range(0, 3);
         card3Bot.sprite = GetBombUpgradeSprite(card3BombUpgradeValue);
+        card3BombImg.sprite = GetBombUpgradeBombSprite(card3BombUpgradeValue);
+
+
+        card1BombLevelText.text = GetBombLevelText(card1BombUpgradeValue);
+        card2BombLevelText.text = GetBombLevelText(card2BombUpgradeValue);
+        card3BombLevelText.text = GetBombLevelText(card3BombUpgradeValue);
     }
 
 
@@ -139,13 +183,27 @@ public class GameManager : Singleton<GameManager>
         switch (num)
         {
             case 0:
-                return upgradeBomb;
+                return upgradeBombBackground;
             case 1:
-                return upgradeCrossBomb;
+                return upgradeCrossBombBackground;
             case 2:
-                return upgradePlusBomb;
+                return upgradePlusBombBackground;
             default:
-                return upgradeBomb;
+                return upgradeBombBackground;
+        }
+    }
+    Sprite GetBombUpgradeBombSprite(int num)
+    {
+        switch (num)
+        {
+            case 0:
+                return upgradeBombbomb;
+            case 1:
+                return upgradeCrossBombbomb;
+            case 2:
+                return upgradePlusBombbomb;
+            default:
+                return upgradeBombbomb;
         }
     }
 
@@ -188,19 +246,31 @@ public class GameManager : Singleton<GameManager>
         switch (num)
         {
             case 0:
-                GameData.bombLevel++;
+                if (GameData.bombLevel < 3)
+                    GameData.bombLevel++;
+
+                Debug.Log("Bomb level: " + GameData.bombLevel);
                 break;
             case 1:
-                GameData.crossBombLevel++;
+                if (GameData.crossBombLevel < 3)
+                    GameData.crossBombLevel++;
+
+                Debug.Log("cross Bomb level: " + GameData.crossBombLevel);
                 break;
             case 2:
-                GameData.plusBombLevel++;
+                if (GameData.plusBombLevel < 3)
+
+                    GameData.plusBombLevel++;
+
+                Debug.Log("plus Bomb level: " + GameData.plusBombLevel);
                 break;
             default:
                 GameData.bombLevel++;
                 break;
         }
+
     }
+
 
     void SetLevelType(int num)
     {

@@ -7,7 +7,14 @@ public class EnergyTile : MonoBehaviour, IActionTile
     public void Action(int chainID)
     {
         anim.SetTrigger("explode");
-        GameData.energy += 20 * GameManager.Instance.GetChain(chainID);
+        if (GameManager.Instance.GetChain(chainID) > 1)
+            GameData.energy += 20 * GameManager.Instance.GetChain(chainID);
+        else
+        {
+            GameData.energy += 20;
+
+
+        }
         UIManager.Instance.Modify(UIManager.StatType.Energy);
 
     }

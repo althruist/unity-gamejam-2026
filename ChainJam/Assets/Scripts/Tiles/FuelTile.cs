@@ -6,8 +6,12 @@ public class FuelTile : MonoBehaviour, IActionTile
     public Animator anim;
     public void Action(int chainID)
     {
-
-        GameData.fuel += 30 * GameManager.Instance.GetChain(chainID);
+        if (GameManager.Instance.GetChain(chainID) > 1)
+            GameData.fuel += 30 * GameManager.Instance.GetChain(chainID);
+        else
+        {
+            GameData.fuel += 30;
+        }
         UIManager.Instance.Modify(UIManager.StatType.Fuel);
         anim.SetTrigger("explode");
 
@@ -18,7 +22,7 @@ public class FuelTile : MonoBehaviour, IActionTile
         //Debug.Log("EXPLOSION EVENT FIRED");
 
         Destroy(gameObject);
-        
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
