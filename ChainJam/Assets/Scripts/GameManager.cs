@@ -44,7 +44,7 @@ public class GameManager : Singleton<GameManager>
     int card2BombUpgradeValue = 0;
     int card3BombUpgradeValue = 0;
 
-    string mainScene = "GridTest";
+    string mainScene = "Gameplay";
 
     public List<Vector2> chainList = new List<Vector2>();
 

@@ -14,7 +14,7 @@ public class PlusBombCrateTile : MonoBehaviour, IActionTile
 
     public void OnExplodeAnimationEnd()
     {
-        Debug.Log("EXPLOSION EVENT FIRED");
+        //Debug.Log("EXPLOSION EVENT FIRED");
         GameData.plusBombAmount++;
         Destroy(gameObject);
 

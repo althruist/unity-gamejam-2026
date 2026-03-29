@@ -9,16 +9,19 @@ public class EnergyTile : MonoBehaviour, IActionTile
         
         
         anim.SetTrigger("explode");
+        GameData.energy += 20;
+        UIManager.Instance.Modify(UIManager.StatType.Energy);
 
     }
 
     public void OnExplodeAnimationEnd()
     {
         //Debug.Log("EXPLOSION EVENT FIRED");
+        
 
         Destroy(gameObject);
-        GameData.energy += 100;
-        UIManager.Instance.Modify(UIManager.StatType.Energy);
+        
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

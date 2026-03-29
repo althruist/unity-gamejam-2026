@@ -21,7 +21,7 @@ public class GameUi : MonoBehaviour
     {
         controls.SetActive(true);
         energyText.SetText(GameData.energy.ToString());
-        fuelText.SetText(GameData.fuel.ToString());
+        fuelText.SetText(GameData.fuel.ToString()+"/"+ GameData.fuelToWin.ToString());
         rowBombAmountText.SetText("x" + GameData.bombAmount);
         crossBombAmountText.SetText("x" + GameData.crossBombAmount);
         plusBombAmountText.SetText("x" + GameData.plusBombAmount);
@@ -31,7 +31,7 @@ public class GameUi : MonoBehaviour
     void Update()
     {
         energyText.SetText(GameData.energy.ToString());
-        fuelText.SetText(GameData.fuel.ToString());
+        fuelText.SetText(GameData.fuel.ToString() + "/" + GameData.fuelToWin.ToString());
         rowBombAmountText.SetText("x" + GameData.bombAmount);
         crossBombAmountText.SetText("x" + GameData.crossBombAmount);
         plusBombAmountText.SetText("x" + GameData.plusBombAmount);
