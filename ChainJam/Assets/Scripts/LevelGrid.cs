@@ -79,26 +79,31 @@ public class LevelGrid : MonoBehaviour
     void RandomizeGrid()
     {
         float multiplyer = (float)(GameData.gridLenght) / 10;
-        //Debug.Log(multiplyer);
+        //Debug.Log(GameData.levelType);
 
-        int EnergyNum = (int) Mathf.Round(Random.Range(5, 10) * multiplyer);
-        //Debug.Log(EnergyNum);
+        int EneFuelMultiplyer = GameData.levelType == LevelType.EneFuel ? 2 : 1;
+        int EnergyNum = (int) Mathf.Round(Random.Range(5, 10) * multiplyer * EneFuelMultiplyer);
+        //Debug.Log(EneFuelMultiplyer + "   " + EnergyNum);
         InsertTiles(EnergyNum, GridTileType.Energy);
-        int FuelNum = (int)Mathf.Round(Random.Range(5, 10) * multiplyer);
+        int FuelNum = (int)Mathf.Round(Random.Range(5, 10) * multiplyer * EneFuelMultiplyer);
         InsertTiles(FuelNum, GridTileType.Fuel);
 
-        int BombCrateNum = (int)Mathf.Round(multiplyer);
+        int CrateMultiplyer = GameData.levelType == LevelType.Crate ? 2 : 1;
+        int BombCrateNum = (int)Mathf.Round(multiplyer * CrateMultiplyer);
+        //Debug.Log(CrateMultiplyer + "   " + BombCrateNum);
         InsertTiles(BombCrateNum, GridTileType.BombCrate);
-        int CrossBombCrateNum = (int)Mathf.Round(Random.Range(2, 3) * multiplyer);
+        int CrossBombCrateNum = (int)Mathf.Round(Random.Range(2, 3) * multiplyer * CrateMultiplyer);
         InsertTiles(CrossBombCrateNum, GridTileType.CrossBombCrate);
-        int PlusBombCrateNum = (int)Mathf.Round(Random.Range(2, 3) * multiplyer);
+        int PlusBombCrateNum = (int)Mathf.Round(Random.Range(2, 3) * multiplyer * CrateMultiplyer);
         InsertTiles(PlusBombCrateNum, GridTileType.PlusBombCrate);
 
-        int NatBombNum = (int)Mathf.Round(Random.Range(1, 5) * multiplyer);
+        int BombMultiplyer = GameData.levelType == LevelType.Bomb ? 2 : 1;
+        int NatBombNum = (int)Mathf.Round(Random.Range(1, 5) * multiplyer * BombMultiplyer);
+        //Debug.Log(BombMultiplyer + "   " + NatBombNum);
         InsertTiles(NatBombNum, GridTileType.NatBomb);
-        int NatCrossBombNum = (int)Mathf.Round(Random.Range(1, 5) * multiplyer);
+        int NatCrossBombNum = (int)Mathf.Round(Random.Range(1, 5) * multiplyer * BombMultiplyer);
         InsertTiles(NatCrossBombNum, GridTileType.NatCrossBomb);
-        int NatPlusBombNum = (int)Mathf.Round(Random.Range(1, 5) * multiplyer);
+        int NatPlusBombNum = (int)Mathf.Round(Random.Range(1, 5) * multiplyer * BombMultiplyer);
         InsertTiles(NatPlusBombNum, GridTileType.NatPlusBomb);
     }
 

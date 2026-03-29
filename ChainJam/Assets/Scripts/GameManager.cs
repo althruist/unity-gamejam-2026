@@ -30,15 +30,29 @@ public class GameManager : Singleton<GameManager>
     public Sprite upgradeCrossBomb;
     public Sprite upgradePlusBomb;
 
+    int card1LevelValue = 0;
+    int card2LevelValue = 0;
+    int card3LevelValue = 0;
+
+    int card1LevelIncreaseValue = 0;
+    int card2LevelIncreaseValue = 0;
+    int card3LevelIncreaseValue = 0;
+
+    int card1BombUpgradeValue = 0;
+    int card2BombUpgradeValue = 0;
+    int card3BombUpgradeValue = 0;
+
+    string mainScene = "GridTest";
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GameData.energy = 100;
+        GameData.energy = 50;
         GameData.fuel = 0;
-        GameData.bombAmount = 3;
-        GameData.plusBombAmount = 3;
-        GameData.crossBombAmount = 3;
+        GameData.bombAmount = 1;
+        GameData.plusBombAmount = 1;
+        GameData.crossBombAmount = 1;
 
         wall.transform.position = new Vector3(GameData.gridLenght - 2, 0, 0);
         background.transform.position = new Vector3((float) (GameData.gridLenght - 10) /2, 0, 1);
@@ -85,18 +99,26 @@ public class GameManager : Singleton<GameManager>
     {
         levelCards.SetActive(true);
 
-        card1Top.sprite = GetNextLevelSprite(Random.Range(0,4));
-        //Debug.Log(card1Top == nextLevelNormal);
-        card2Top.sprite = GetNextLevelSprite(Random.Range(0, 4));
-        card3Top.sprite = GetNextLevelSprite(Random.Range(0, 4));
+        card1LevelValue = Random.Range(0, 4);
+        card1Top.sprite = GetNextLevelSprite(card1LevelValue);
+        card2LevelValue = Random.Range(0, 4);
+        card2Top.sprite = GetNextLevelSprite(card2LevelValue);
+        card3LevelValue = Random.Range(0, 4);
+        card3Top.sprite = GetNextLevelSprite(card3LevelValue);
 
-        card1LevelIncrease.text = Random.Range(0, 3).ToString();
-        card2LevelIncrease.text = Random.Range(0, 3).ToString();
-        card3LevelIncrease.text = Random.Range(0, 3).ToString();
+        card1LevelIncreaseValue = Random.Range(1, 4);
+        card1LevelIncrease.text = card1LevelIncreaseValue.ToString();
+        card2LevelIncreaseValue = Random.Range(1, 4);
+        card2LevelIncrease.text = card2LevelIncreaseValue.ToString();
+        card3LevelIncreaseValue = Random.Range(1, 4);
+        card3LevelIncrease.text = card3LevelIncreaseValue.ToString();
 
-        card1Bot.sprite = GetBombUpgradeSprite(Random.Range(0, 3));
-        card2Bot.sprite = GetBombUpgradeSprite(Random.Range(0, 3));
-        card3Bot.sprite = GetBombUpgradeSprite(Random.Range(0, 3));
+        card1BombUpgradeValue = Random.Range(0, 3);
+        card1Bot.sprite = GetBombUpgradeSprite(card1BombUpgradeValue);
+        card2BombUpgradeValue = Random.Range(0, 3);
+        card2Bot.sprite = GetBombUpgradeSprite(card2BombUpgradeValue);
+        card3BombUpgradeValue = Random.Range(0, 3);
+        card3Bot.sprite = GetBombUpgradeSprite(card3BombUpgradeValue);
     }
 
 
@@ -133,8 +155,74 @@ public class GameManager : Singleton<GameManager>
     }
 
 
-    public void ButtonTest()
+    public void Card1Button()
     {
-        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        SetLevelType(card1LevelValue);
+        GameData.gridLenght += card1LevelIncreaseValue;
+        UpgradeBomb(card1BombUpgradeValue);
+
+        //Debug.Log(card1LevelValue + " " + card1LevelIncreaseValue + " " + card1BombUpgradeValue);
+        SceneManager.LoadScene(mainScene);
+    }
+
+    public void Card2Button()
+    {
+        SetLevelType(card2LevelValue);
+        GameData.gridLenght += card2LevelIncreaseValue;
+        UpgradeBomb(card2BombUpgradeValue);
+
+        //Debug.Log(card2LevelValue + " " + card2LevelIncreaseValue + " " + card2BombUpgradeValue);
+        SceneManager.LoadScene(mainScene);
+    }
+
+    public void Card3Button()
+    {
+        SetLevelType(card3LevelValue);
+        GameData.gridLenght += card3LevelIncreaseValue;
+        UpgradeBomb(card3BombUpgradeValue);
+
+        //Debug.Log(card3LevelValue + " " + card3LevelIncreaseValue + " " + card3BombUpgradeValue);
+        SceneManager.LoadScene(mainScene);
+    }
+
+    void UpgradeBomb(int num)
+    {
+        switch (num)
+        {
+            case 0:
+                GameData.bombLevel++;
+                break;
+            case 1:
+                GameData.crossBombLevel++;
+                break;
+            case 2:
+                GameData.plusBombLevel++;
+                break;
+            default:
+                GameData.bombLevel++;
+                break;
+        }
+    }
+
+    void SetLevelType(int num)
+    {
+        switch (num)
+        {
+            case 0:
+                GameData.levelType = LevelType.Normal;
+                break;
+            case 1:
+                GameData.levelType = LevelType.EneFuel;
+                break;
+            case 2:
+                GameData.levelType = LevelType.Bomb;
+                break;
+            case 3:
+                GameData.levelType = LevelType.Crate;
+                break;
+            default:
+                GameData.levelType = LevelType.Normal;
+                break;
+        }
     }
 }
