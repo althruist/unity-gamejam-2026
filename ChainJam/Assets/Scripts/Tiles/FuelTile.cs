@@ -16,8 +16,8 @@ public class FuelTile : MonoBehaviour, IActionTile
         Debug.Log("EXPLOSION EVENT FIRED");
 
         Destroy(gameObject);
-        GameData.energy += 100;
-        UIManager.Instance.Modify(UIManager.StatType.Energy);
+        GameData.fuel += 100;
+        UIManager.Instance.Modify(UIManager.StatType.Fuel);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
