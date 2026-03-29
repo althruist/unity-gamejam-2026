@@ -17,7 +17,7 @@ public class Explosion : MonoBehaviour
         Debug.Log("hit");
         if (hasComboEnabled)
         {
-            text.SetText(GameManager.Instance.GetChain(GameManager.Instance.currentChain).ToString());
+            text.SetText($"x{GameManager.Instance.GetChain(GameManager.Instance.currentChain).ToString()}");
         }
         else
         {
