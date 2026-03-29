@@ -27,7 +27,8 @@ public class GameManager : Singleton<GameManager>
     public TextMeshProUGUI card1Leveldescription;
     public TextMeshProUGUI card2Leveldescription;
     public TextMeshProUGUI card3Leveldescription;
-    
+    public int remainingFuelTiles;
+
 
 
 
@@ -74,6 +75,7 @@ public class GameManager : Singleton<GameManager>
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
         gameObject.GetComponent<AudioSource>().clip = ambience;
         gameObject.GetComponent<AudioSource>().loop = true;
         gameObject.GetComponent<AudioSource>().Play();
@@ -95,6 +97,8 @@ public class GameManager : Singleton<GameManager>
     {
         
         loadWin();
+        if (gameState != GameState.Playing) return;
+        CheckLoseCondition();
     }
 
 
@@ -296,6 +300,17 @@ public class GameManager : Singleton<GameManager>
             default:
                 GameData.levelType = LevelType.Normal;
                 break;
+        }
+    }
+    public void CheckLoseCondition()
+    {
+        Debug.Log(remainingFuelTiles);
+        if (gameState != GameState.Playing) return;
+
+        if (remainingFuelTiles <= 0 && GameData.fuel < GameData.fuelToWin)
+        {
+            gameState = GameState.GameOver;
+            SceneManager.LoadScene("LoseScene");
         }
     }
 

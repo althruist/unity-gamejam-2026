@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class FuelTile : MonoBehaviour, IActionTile
 {
+    void Start()
+    {
+        GameManager.Instance.remainingFuelTiles++;
+    }
     public Animator anim;
     public void Action(int chainID)
     {
@@ -22,6 +26,7 @@ public class FuelTile : MonoBehaviour, IActionTile
         //Debug.Log("EXPLOSION EVENT FIRED");
 
         Destroy(gameObject);
+        GameManager.Instance.remainingFuelTiles--;
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
