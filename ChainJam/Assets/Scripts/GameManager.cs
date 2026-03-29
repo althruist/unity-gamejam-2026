@@ -1,10 +1,35 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
     public GameObject wall;
     public GameObject background;
+
+    public GameObject levelCards;
+
+    public Image card1Top;
+    public TextMeshProUGUI card1LevelIncrease;
+    public Image card1Bot;
+
+    public Image card2Top;
+    public TextMeshProUGUI card2LevelIncrease;
+    public Image card2Bot;
+
+    public Image card3Top;
+    public TextMeshProUGUI card3LevelIncrease;
+    public Image card3Bot;
+
+    public Sprite nextLevelNormal;
+    public Sprite nextLevelEneFuel;
+    public Sprite nextLevelBombs;
+    public Sprite nextLevelCrates;
+    public Sprite upgradeBomb;
+    public Sprite upgradeCrossBomb;
+    public Sprite upgradePlusBomb;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -49,9 +74,67 @@ public class GameManager : MonoBehaviour
 
     void loadWin()
     {
-        if (GameData.fuel <= GameData.fuelToWin)
+        if (GameData.fuel >= GameData.fuelToWin && !levelCards.activeSelf)
         {
-            //Make next level Button
+            CreateLevelCards();
         }
+    }
+
+
+    void CreateLevelCards()
+    {
+        levelCards.SetActive(true);
+
+        card1Top.sprite = GetNextLevelSprite(Random.Range(0,4));
+        //Debug.Log(card1Top == nextLevelNormal);
+        card2Top.sprite = GetNextLevelSprite(Random.Range(0, 4));
+        card3Top.sprite = GetNextLevelSprite(Random.Range(0, 4));
+
+        card1LevelIncrease.text = Random.Range(0, 3).ToString();
+        card2LevelIncrease.text = Random.Range(0, 3).ToString();
+        card3LevelIncrease.text = Random.Range(0, 3).ToString();
+
+        card1Bot.sprite = GetBombUpgradeSprite(Random.Range(0, 3));
+        card2Bot.sprite = GetBombUpgradeSprite(Random.Range(0, 3));
+        card3Bot.sprite = GetBombUpgradeSprite(Random.Range(0, 3));
+    }
+
+
+    Sprite GetNextLevelSprite(int num)
+    {
+        switch (num)
+        {
+            case 0:
+                return nextLevelNormal;
+            case 1:
+                return nextLevelEneFuel;
+            case 2:
+                return nextLevelBombs;
+            case 3:
+                return nextLevelCrates;
+            default:
+                return nextLevelNormal;
+        }
+    }
+
+    Sprite GetBombUpgradeSprite(int num)
+    {
+        switch (num)
+        {
+            case 0:
+                return upgradeBomb;
+            case 1:
+                return upgradeCrossBomb;
+            case 2:
+                return upgradePlusBomb;
+            default:
+                return upgradeBomb;
+        }
+    }
+
+
+    public void ButtonTest()
+    {
+        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
     }
 }

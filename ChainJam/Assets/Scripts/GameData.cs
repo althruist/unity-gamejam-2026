@@ -4,7 +4,7 @@ public abstract class GameData
 {
     public static int energy;
     public static int fuel;
-    public static int fuelToWin;
+    public static int fuelToWin = 50;
 
 
     public static int bombAmount;
