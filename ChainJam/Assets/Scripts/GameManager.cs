@@ -114,23 +114,6 @@ public class GameManager : Singleton<GameManager>
             CreateLevelCards();
         }
     }
-    string GetBombLevelText(int bombType)
-    {
-        switch (bombType)
-        {
-            case 0: // normal
-                return GameData.bombLevel >= 3 ? "MAX" : GameData.bombLevel.ToString();
-
-            case 1: // cross
-                return GameData.crossBombLevel >= 3 ? "MAX" : GameData.crossBombLevel.ToString();
-
-            case 2: // plus
-                return GameData.plusBombLevel >= 3 ? "MAX" : GameData.plusBombLevel.ToString();
-
-            default:
-                return "";
-        }
-    }
 
 
     void CreateLevelCards()
@@ -160,9 +143,9 @@ public class GameManager : Singleton<GameManager>
         card3BombImg.sprite = GetBombUpgradeBombSprite(card3BombUpgradeValue);
 
 
-        card1BombLevelText.text = "Level Up";
-        card2BombLevelText.text = "Level Up";
-        card3BombLevelText.text = "Level Up";
+        card1BombLevelText.text = GetBombLevelText(card1BombUpgradeValue);
+        card2BombLevelText.text = GetBombLevelText(card2BombUpgradeValue);
+        card3BombLevelText.text = GetBombLevelText(card3BombUpgradeValue);
 
 
 
@@ -175,7 +158,28 @@ public class GameManager : Singleton<GameManager>
         card2Leveldescription.text = GetLevelDescription(card2LevelValue);
         card3Leveldescription.text = GetLevelDescription(card3LevelValue);
     }
+    string GetBombLevelText(int upgradeType)
+    {
+        int level = 0;
 
+        switch (upgradeType)
+        {
+            case 0:
+                level = GameData.bombLevel;
+                break;
+            case 1:
+                level = GameData.crossBombLevel;
+                break;
+            case 2:
+                level = GameData.plusBombLevel;
+                break;
+        }
+
+        if (level >= 3)
+            return "MAX";
+
+        return "Level Up";
+    }
 
     Sprite GetNextLevelSprite(int num)
     {
