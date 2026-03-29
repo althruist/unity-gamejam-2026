@@ -7,7 +7,7 @@ public class FuelTile : MonoBehaviour, IActionTile
     public void Action(int chainID)
     {
 
-        GameData.fuel += 30;
+        GameData.fuel += 30 * GameManager.Instance.GetChain(chainID);
         UIManager.Instance.Modify(UIManager.StatType.Fuel);
         anim.SetTrigger("explode");
 

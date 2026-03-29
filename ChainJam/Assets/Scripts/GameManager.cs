@@ -164,6 +164,7 @@ public class GameManager : Singleton<GameManager>
         SetLevelType(card1LevelValue);
         GameData.gridLenght += card1LevelIncreaseValue;
         UpgradeBomb(card1BombUpgradeValue);
+        GameData.fuelToWin *= 2;
 
         //Debug.Log(card1LevelValue + " " + card1LevelIncreaseValue + " " + card1BombUpgradeValue);
         SceneManager.LoadScene(mainScene);
@@ -174,6 +175,7 @@ public class GameManager : Singleton<GameManager>
         SetLevelType(card2LevelValue);
         GameData.gridLenght += card2LevelIncreaseValue;
         UpgradeBomb(card2BombUpgradeValue);
+        GameData.fuelToWin *= 2;
 
         //Debug.Log(card2LevelValue + " " + card2LevelIncreaseValue + " " + card2BombUpgradeValue);
         SceneManager.LoadScene(mainScene);
@@ -184,6 +186,7 @@ public class GameManager : Singleton<GameManager>
         SetLevelType(card3LevelValue);
         GameData.gridLenght += card3LevelIncreaseValue;
         UpgradeBomb(card3BombUpgradeValue);
+        GameData.fuelToWin *= 2;
 
         //Debug.Log(card3LevelValue + " " + card3LevelIncreaseValue + " " + card3BombUpgradeValue);
         SceneManager.LoadScene(mainScene);
@@ -264,6 +267,19 @@ public class GameManager : Singleton<GameManager>
         }
         maxChain++;
         chainList.Add(new Vector2(chainID,maxChain));
+        return maxChain;
+    }
+
+    public int GetChain(int chainID)
+    {
+        int maxChain = 0;
+        for (int i = 0; i < chainList.Count; i++)
+        {
+            if (chainList[i].x == chainID && chainList[i].y > maxChain)
+            {
+                maxChain = (int)chainList[i].y;
+            }
+        }
         return maxChain;
     }
 
