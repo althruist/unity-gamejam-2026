@@ -21,8 +21,16 @@ public class Canon : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.gameState == GameState.Win)
+            return;
         PointAtMouse();
-        if (Input.GetKeyDown(KeyCode.Space) && !isShooting && Time.time >= nextShootTime && GameData.energy >= 10)
+
+        
+
+        if (Input.GetKeyDown(KeyCode.Space) &&
+            !isShooting &&
+            Time.time >= nextShootTime &&
+            GameData.energy >= 10)
         {
             Shoot();
         }

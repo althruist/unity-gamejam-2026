@@ -3208,6 +3208,7 @@ MonoBehaviour:
   background: {fileID: 443520804}
   levelCards: {fileID: 1437875522}
   currentChain: 0
+  gameState: 0
   card1BombLevelText: {fileID: 2063316924}
   card2BombLevelText: {fileID: 373162714}
   card3BombLevelText: {fileID: 250736853}
@@ -4256,7 +4257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1437875523
 RectTransform:
   m_ObjectHideFlags: 0

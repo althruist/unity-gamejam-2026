@@ -13,11 +13,12 @@ public class GameManager : Singleton<GameManager>
 
     public GameObject levelCards;
     public int currentChain;
+    public GameState gameState;
 
 
- 
-    
-    
+
+
+
 
 
     public TextMeshProUGUI card1BombLevelText;
@@ -77,6 +78,7 @@ public class GameManager : Singleton<GameManager>
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gameState = GameState.Playing;
         GameData.energy = 50;
         GameData.fuel = 0;
         GameData.bombAmount = 3;
@@ -86,11 +88,13 @@ public class GameManager : Singleton<GameManager>
         wall.transform.position = new Vector3(GameData.gridLenght - 2, 0, 0);
         background.transform.position = new Vector3((float)(GameData.gridLenght - 10) / 2, 0, 1);
         background.GetComponent<SpriteRenderer>().size = new Vector2(GameData.gridLenght + 8, 10);
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         loadWin();
     }
 
@@ -106,8 +110,11 @@ public class GameManager : Singleton<GameManager>
 
     void loadWin()
     {
-        if (GameData.fuel >= GameData.fuelToWin && !levelCards.activeSelf)
+        if (gameState == GameState.Playing &&
+            GameData.fuel >= GameData.fuelToWin &&
+            !levelCards.activeSelf)
         {
+            gameState = GameState.Win;
             CreateLevelCards();
         }
     }
