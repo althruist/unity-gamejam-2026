@@ -4,7 +4,7 @@ public class NormalTile : MonoBehaviour, IActionTile
 {
 
     public Animator anim;
-    public void Action()
+    public void Action(int chainID)
     {
         anim.SetTrigger("explode");
     }
@@ -13,7 +13,7 @@ public class NormalTile : MonoBehaviour, IActionTile
 
     public void OnExplodeAnimationEnd()
     {
-        Debug.Log("EXPLOSION EVENT FIRED");
+        //Debug.Log("EXPLOSION EVENT FIRED");
 
         Destroy(gameObject);
 
@@ -23,10 +23,10 @@ public class NormalTile : MonoBehaviour, IActionTile
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        Debug.Log("Normal tile hit");
+        //Debug.Log("Normal tile hit");
         if (collision.gameObject.CompareTag("Laser"))
         {
-            Action();
+            Action(0);
             
         }
 

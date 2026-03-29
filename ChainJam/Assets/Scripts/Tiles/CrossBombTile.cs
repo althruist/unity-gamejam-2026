@@ -5,6 +5,9 @@ public class CrossBombTile : BaseBombTile
     protected override void Explode()
     {
         DisableCollider();
+        //GameManager.Instance.IncreaseChain(chainID);
+        //int currentChain = GameManager.Instance.IncreaseChain(chainID);
+        //Debug.Log(currentChain);
 
         for (int i = 1; i <= GameData.crossBombLevel; i++)
         {
@@ -13,6 +16,7 @@ public class CrossBombTile : BaseBombTile
             Check(new Vector3(-i, -i, 0));
             Check(new Vector3(i, -i, 0));
         }
+        //GameManager.Instance.DeleteChain(chainID, currentChain);
     }
 
     void Check(Vector3 offset)
@@ -24,6 +28,6 @@ public class CrossBombTile : BaseBombTile
         );
 
         if (hit.collider != null)
-            TriggerTile(hit.collider);
+            TriggerTile(hit.collider, chainID);
     }
 }

@@ -22,7 +22,7 @@ public class TileTest : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
         if (hit.collider != null && hit.collider.tag == "Tile")
         {
-            hit.collider.gameObject.GetComponent<IActionTile>().Action();
+            hit.collider.gameObject.GetComponent<IActionTile>().Action(0);
         }
     }
 }

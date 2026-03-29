@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -44,15 +46,17 @@ public class GameManager : Singleton<GameManager>
 
     string mainScene = "GridTest";
 
+    public List<Vector2> chainList = new List<Vector2>();
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         GameData.energy = 50;
         GameData.fuel = 0;
-        GameData.bombAmount = 1;
-        GameData.plusBombAmount = 1;
-        GameData.crossBombAmount = 1;
+        GameData.bombAmount = 3;
+        GameData.plusBombAmount = 3;
+        GameData.crossBombAmount = 3;
 
         wall.transform.position = new Vector3(GameData.gridLenght - 2, 0, 0);
         background.transform.position = new Vector3((float) (GameData.gridLenght - 10) /2, 0, 1);
@@ -223,6 +227,55 @@ public class GameManager : Singleton<GameManager>
             default:
                 GameData.levelType = LevelType.Normal;
                 break;
+        }
+    }
+
+
+    public int StartChain()
+    {
+        if (chainList.Count == 0)
+        {
+            chainList.Add(new Vector2(1, 0));
+            return 1;
+        }
+        else
+        {
+            int newID = 0;
+            for (int i = 0; i < chainList.Count; i++)
+            {
+                if (chainList[i].x > newID) newID = (int) chainList[i].x;
+            }
+            newID++;
+            chainList.Add(new Vector2(newID, 0));
+            return newID;  
+        }
+
+    }
+
+    public int IncreaseChain(int chainID)
+    {
+        int maxChain = 0;
+        for (int i = 0; i < chainList.Count; i++)
+        {
+            if (chainList[i].x == chainID && chainList[i].y > maxChain)
+            {
+                maxChain = (int) chainList[i].y;
+            }
+        }
+        maxChain++;
+        chainList.Add(new Vector2(chainID,maxChain));
+        return maxChain;
+    }
+
+    public void DeleteChain(int chainID, int value)
+    {
+        for (int i = 0; i < chainList.Count; i++)
+        {
+            if (chainList[i].x == chainID && chainList[i].y == value)
+            {
+                chainList.RemoveAt(i);
+                return;
+            }
         }
     }
 }

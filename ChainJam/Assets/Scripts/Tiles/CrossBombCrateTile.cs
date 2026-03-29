@@ -4,7 +4,7 @@ public class CrossBombCrateTile : MonoBehaviour, IActionTile
 {
 
     public Animator anim;
-    public void Action()
+    public void Action(int chainID)
     {
         anim.SetTrigger("explode");
 
@@ -27,7 +27,7 @@ public class CrossBombCrateTile : MonoBehaviour, IActionTile
         Debug.Log("Normal tile hit");
         if (collision.gameObject.CompareTag("Laser"))
         {
-            Action();
+            Action(0);
 
         }
 

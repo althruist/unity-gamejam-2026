@@ -1,9 +1,10 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class FuelTile : MonoBehaviour, IActionTile
 {
     public Animator anim;
-    public void Action()
+    public void Action(int chainID)
     {
 
 
@@ -13,7 +14,7 @@ public class FuelTile : MonoBehaviour, IActionTile
 
     public void OnExplodeAnimationEnd()
     {
-        Debug.Log("EXPLOSION EVENT FIRED");
+        //Debug.Log("EXPLOSION EVENT FIRED");
 
         Destroy(gameObject);
         GameData.fuel += 100;
@@ -22,10 +23,11 @@ public class FuelTile : MonoBehaviour, IActionTile
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        Debug.Log("Normal tile hit");
+        //Debug.Log("Normal tile hit");
         if (collision.gameObject.CompareTag("Laser"))
         {
-            Action();
+            int chainID = collision.gameObject.GetComponent<Laser>().chainID;
+            Action(chainID);
         }
 
     }

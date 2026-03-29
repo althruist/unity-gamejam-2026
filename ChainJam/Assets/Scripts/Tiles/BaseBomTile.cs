@@ -6,6 +6,8 @@ public abstract class BaseBombTile : MonoBehaviour, IActionTile
    
     protected BoxCollider2D col;
     protected Animator anim;
+    protected int chainID;
+    private int currentChain;
 
     protected virtual void Awake()
     {
@@ -13,8 +15,11 @@ public abstract class BaseBombTile : MonoBehaviour, IActionTile
         anim = GetComponent<Animator>();
     }
 
-    public void Action()
+    public void Action(int chainID)
     {
+        this.chainID = chainID;
+        currentChain = GameManager.Instance.IncreaseChain(chainID);
+        Debug.Log(currentChain);
         StartCoroutine(ExplodeSequence());
     }
 
@@ -31,20 +36,27 @@ public abstract class BaseBombTile : MonoBehaviour, IActionTile
     }
     public void OnExplodeAnimationEnd()
     {
-        Debug.Log("EXPLOSION EVENT FIRED");
+        
+        //Debug.Log("id" + chainID + " chain: " + currentChain);
+        //Debug.Log("EXPLOSION EVENT FIRED");
         Explode();
+        GameManager.Instance.DeleteChain(chainID, currentChain);
         Destroy(gameObject);
+        
     }
 
     protected abstract void Explode();
 
-    protected void TriggerTile(Collider2D collider)
+    protected void TriggerTile(Collider2D collider, int chainID)
     {
         if (collider.CompareTag("Tile"))
         {
             IActionTile tile = collider.GetComponent<IActionTile>();
+            //this.chainID = chainID;
+            //Debug.Log("trigger ID" + chainID);
             if (tile != null)
-                tile.Action();
+
+                tile.Action(chainID);
         }
     }
 
@@ -58,7 +70,9 @@ public abstract class BaseBombTile : MonoBehaviour, IActionTile
     {
         if (collision.CompareTag("Laser"))
         {
-            Action();
+            chainID =  collision.gameObject.GetComponent<Laser>().chainID;
+            //Debug.Log("laser ID" + chainID);
+            Action(chainID);
             
         }
     }

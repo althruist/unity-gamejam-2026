@@ -41,7 +41,7 @@ public class Canon : MonoBehaviour
     }
     public void OnShootAnimationEnd()
     {
-        Debug.Log("shoot EVENT FIRED");
+        //Debug.Log("shoot EVENT FIRED");
         animator.SetBool("isShooting", false);
         isShooting = false;
         audioSource.PlayOneShot(audioSource.clip);
@@ -51,7 +51,7 @@ public class Canon : MonoBehaviour
     public void Shoot()
     {
         isShooting = true;
-        Debug.Log("shots");
+        //Debug.Log("shots");
 
         GameData.energy -= 10;
 

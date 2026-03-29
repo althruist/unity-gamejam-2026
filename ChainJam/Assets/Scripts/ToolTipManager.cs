@@ -18,7 +18,7 @@ public class ToolTipManager : MonoBehaviour
 
     public void Show(string message, Color? cardColor = null, Color? textColor = null)
     {
-        Debug.Log(message);
+        //Debug.Log(message);
         panel.SetActive(true);
         panel.GetComponent<Image>().color = cardColor ?? Color.white;
         text.color = textColor ?? Color.black;

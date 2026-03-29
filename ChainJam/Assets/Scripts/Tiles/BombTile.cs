@@ -5,6 +5,8 @@ public class BombTile : BaseBombTile
     protected override void Explode()
     {
         DisableCollider();
+        //GameManager.Instance.IncreaseChain(chainID);
+        //int currentChain = GameManager.Instance.IncreaseChain(chainID);
 
         RaycastHit2D[] hits = Physics2D.BoxCastAll(
             transform.position,
@@ -16,7 +18,9 @@ public class BombTile : BaseBombTile
         foreach (var hit in hits)
         {
             if (hit.collider != null)
-                TriggerTile(hit.collider);
+                TriggerTile(hit.collider, chainID);
         }
+
+        //GameManager.Instance.DeleteChain(chainID, currentChain);
     }
 }

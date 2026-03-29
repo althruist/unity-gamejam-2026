@@ -11,13 +11,13 @@ public class BombButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerEnter(PointerEventData data)
     {
-        Debug.Log("Hovering over bomb button");
+        //Debug.Log("Hovering over bomb button");
         anim.SetBool("IsHovering", true);
     }
 
     public void OnPointerExit(PointerEventData data)
     {
-        Debug.Log("Stopped hovering over bomb button");
+        //Debug.Log("Stopped hovering over bomb button");
         anim.SetBool("IsHovering", false);
     }
 }
