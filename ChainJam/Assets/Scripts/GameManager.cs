@@ -81,7 +81,7 @@ public class GameManager : Singleton<GameManager>
         gameObject.GetComponent<AudioSource>().Play();
         gameState = GameState.Playing;
         
-        GameData.fuel = 0;
+        
         GameData.bombAmount = 3;
         GameData.plusBombAmount = 3;
         GameData.crossBombAmount = 3;

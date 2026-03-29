@@ -3259,6 +3259,7 @@ MonoBehaviour:
   card1Leveldescription: {fileID: 1556126469}
   card2Leveldescription: {fileID: 1665551628}
   card3Leveldescription: {fileID: 2101160549}
+  remainingFuelTiles: 0
   nextLevelNormal: {fileID: -2182124076254010665, guid: e3c9eb67aa4666f4ab92a31c3a894a23, type: 3}
   nextLevelEneFuel: {fileID: 3869275551672029106, guid: 1845fc20582b39443925832779df15cc, type: 3}
   nextLevelBombs: {fileID: 7692333296216630994, guid: b68b79cc4d916ec4d984efb520f8c20d, type: 3}
@@ -4627,7 +4628,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1178847415}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Card1Button
+        m_MethodName: Card3Button
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5838,7 +5839,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1178847415}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Card1Button
+        m_MethodName: Card2Button
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
