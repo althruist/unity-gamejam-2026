@@ -11,6 +11,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject background;
 
     public GameObject levelCards;
+    public TextMeshPro tileExplosionText;
 
     public Image card1Top;
     public TextMeshProUGUI card1LevelIncrease;
