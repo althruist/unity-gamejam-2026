@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class LoseScreen : MonoBehaviour
 {
+    public AudioClip ambience;
     private IEnumerator openLoseScreen()
     {
         CinematicLetterbox.Instance.GetComponent<AudioSource>().volume = 0f;
@@ -16,6 +17,9 @@ public class LoseScreen : MonoBehaviour
 
     void Start()
     {
+        gameObject.GetComponent<AudioSource>().clip = ambience;
+        gameObject.GetComponent<AudioSource>().loop = true;
+        gameObject.GetComponent<AudioSource>().Play();
         StartCoroutine(openLoseScreen());
     }
 }
