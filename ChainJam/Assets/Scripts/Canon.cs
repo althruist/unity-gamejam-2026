@@ -3,6 +3,7 @@ using UnityEngine;
 public class Canon : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private AudioSource audioSource;
     public Transform firePoint;
     public GameObject laserPrefab;
     Vector2 canonOffset = new Vector2(-9f, 0f);
@@ -11,22 +12,16 @@ public class Canon : MonoBehaviour
     [SerializeField] private float shootCooldown = 0.5f; // seconds between allowed shots
     private float nextShootTime = 0f;
 
-    Quaternion clampRotationLow, clampRotationHigh;
-
     void Start()
     {
         animator = GetComponent<Animator>();
-
-        clampRotationLow = Quaternion.Euler(0, 0, -70f);
-        clampRotationHigh = Quaternion.Euler(0, 0, +70f);
+        audioSource = GetComponent<AudioSource>();
         FollowCamera();
     }
 
     void Update()
     {
         PointAtMouse();
-
-        // Prevent spamming by requiring: not currently shooting, cooldown expired, and enough energy
         if (Input.GetKeyDown(KeyCode.Space) && !isShooting && Time.time >= nextShootTime && GameData.energy >= 10)
         {
             Shoot();
@@ -36,7 +31,6 @@ public class Canon : MonoBehaviour
     {
         Vector3 camPos = Camera.main.transform.position;
 
-        // Position (your existing logic, fixed syntax)
         transform.position = camPos + new Vector3(canonOffset.x, canonOffset.y, 10f);
     }
 
@@ -50,6 +44,7 @@ public class Canon : MonoBehaviour
         Debug.Log("shoot EVENT FIRED");
         animator.SetBool("isShooting", false);
         isShooting = false;
+        audioSource.PlayOneShot(audioSource.clip);
         SpawnBullet();
     }
 
