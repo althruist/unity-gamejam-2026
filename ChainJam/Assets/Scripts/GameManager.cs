@@ -75,7 +75,7 @@ public class GameManager : Singleton<GameManager>
         gameObject.GetComponent<AudioSource>().loop = true;
         gameObject.GetComponent<AudioSource>().Play();
         gameState = GameState.Playing;
-        GameData.energy = 50;
+        
         GameData.fuel = 0;
         GameData.bombAmount = 3;
         GameData.plusBombAmount = 3;
