@@ -94,15 +94,7 @@ public class GameManager : Singleton<GameManager>
         loadWin();
     }
 
-    //public void GameOver()
-    //{
-    //    if(GameData.energy <= 0 &GameData.fuel<= GameData.fuelToWin)
-    //    {
 
-    //    }
-    //        Debug.Log("Game Over!");
-
-    //}
 
     void loadWin()
     {
@@ -120,11 +112,11 @@ public class GameManager : Singleton<GameManager>
     {
         levelCards.SetActive(true);
 
-        card1LevelValue = Random.Range(0, 4);
+        card1LevelValue = Random.Range(0, 11);
         
-        card2LevelValue = Random.Range(0, 4);
+        card2LevelValue = Random.Range(0, 11);
         
-        card3LevelValue = Random.Range(0, 4);
+        card3LevelValue = Random.Range(0,11);
 
 
         card1LevelIncreaseValue = Random.Range(1, 4);
@@ -363,7 +355,7 @@ public class GameManager : Singleton<GameManager>
             case 3:
                 return "More crates to destroy.";
             default:
-                return "";
+                return "Standard level with normal tiles";
         }
     }
 
