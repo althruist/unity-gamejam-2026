@@ -45,6 +45,9 @@ public class GameManager : Singleton<GameManager>
     int card2LevelValue = 0;
     int card3LevelValue = 0;
 
+    public GameObject card1;
+    public GameObject card2;
+    public GameObject card3;
 
     public Image card1BombImg;
     public Image card2BombImg;
@@ -111,6 +114,9 @@ public class GameManager : Singleton<GameManager>
     void CreateLevelCards()
     {
         levelCards.SetActive(true);
+        card1.GetComponent<Animator>().SetTrigger("Appear");
+        card2.GetComponent<Animator>().SetTrigger("Appear");
+        card3.GetComponent<Animator>().SetTrigger("Appear");
 
         card1LevelValue = Random.Range(0, 11);
         
