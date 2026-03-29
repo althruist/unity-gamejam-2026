@@ -16,15 +16,37 @@ public class ToolTipManager : MonoBehaviour
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 
-    public void Show(string message, Color? cardColor = null, Color? textColor = null)
+    public void Show(string message, BombType bombType, Color? cardColor = null, Color? textColor = null)
     {
-        //Debug.Log(message);
         panel.SetActive(true);
+
         panel.GetComponent<Image>().color = cardColor ?? Color.white;
         text.color = textColor ?? Color.black;
-        text.text = message;
+
+        int level = GetBombLevel(bombType);
+
+        text.text = $"{message} Lv.{level}";
 
         Cursor.SetCursor(hoverCursor, hotspot, CursorMode.Auto);
+    }
+
+    int GetBombLevel(BombType type)
+    {
+        switch (type)
+        {
+            case BombType.Bomb:
+                return GameData.bombLevel;
+
+            case BombType.CrossBomb:
+                return GameData.crossBombLevel;
+
+            case BombType.PlusBomb:
+                return GameData.plusBombLevel;
+
+            case BombType.None:
+            default:
+                return 0;
+        }
     }
 
     public void Hide()

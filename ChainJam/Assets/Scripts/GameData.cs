@@ -9,12 +9,15 @@ public abstract class GameData
 {
     public static int energy =50;
     public static int fuel=0;
-    public static int fuelToWin = 300;
+    public static int fuelToWin = 200;
     public static int lasersinScene = 0;
+
+
+
     
-    public static int bombAmount;
-    public static int crossBombAmount;
-    public static int plusBombAmount;
+    public static int bombAmount =3;
+    public static int crossBombAmount=3;
+    public static int plusBombAmount = 3;
     public static int bombLevel = 1;
     public static int plusBombLevel = 1;
     public static int crossBombLevel = 1;

@@ -82,9 +82,7 @@ public class GameManager : Singleton<GameManager>
         gameState = GameState.Playing;
         
         
-        GameData.bombAmount = 3;
-        GameData.plusBombAmount = 3;
-        GameData.crossBombAmount = 3;
+
 
         wall.transform.position = new Vector3(GameData.gridLenght - 2, 0, 0);
         background.transform.position = new Vector3((float)(GameData.gridLenght - 10) / 2, 0, 1);
@@ -310,7 +308,9 @@ public class GameManager : Singleton<GameManager>
         if (remainingFuelTiles <= 0 && GameData.fuel < GameData.fuelToWin)
         {
             gameState = GameState.GameOver;
+            Debug.Log("Game Over");
             SceneManager.LoadScene("LoseScene");
+
         }
     }
 
