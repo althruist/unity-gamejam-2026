@@ -771,6 +771,7 @@ MonoBehaviour:
   message: Plus Bomb
   cardColor: {r: 0.2175934, g: 0.690566, b: 0.35236144, a: 0.9843137}
   textColor: {r: 0.18900904, g: 0.2924528, b: 0.11725702, a: 1}
+  bombType: 0
 --- !u!222 &203788065
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1578,6 +1579,7 @@ MonoBehaviour:
   message: Cross Bomb
   cardColor: {r: 0.81886786, g: 0.004635034, b: 0.50691, a: 1}
   textColor: {r: 0.31132078, g: 0.030838378, b: 0.19344473, a: 1}
+  bombType: 2
 --- !u!222 &574198705
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7260,6 +7262,7 @@ MonoBehaviour:
   message: Normal Bomb
   cardColor: {r: 0.23851186, g: 0.5925571, b: 0.90943396, a: 1}
   textColor: {r: 0.13585797, g: 0.3394353, b: 0.4056604, a: 1}
+  bombType: 1
 --- !u!222 &2130965473
 CanvasRenderer:
   m_ObjectHideFlags: 0
