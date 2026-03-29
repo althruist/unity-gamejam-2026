@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8208635686809708050}
   - component: {fileID: 4682769391927169958}
   - component: {fileID: -6044754415421234678}
+  - component: {fileID: 7048951517025344625}
   m_Layer: 0
   m_Name: CrossBomb
   m_TagString: Tile
@@ -124,7 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bc9078b06dbee642a26c2b9cf9d4d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombLevel: 1
 --- !u!61 &-6044754415421234678
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -171,3 +171,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7048951517025344625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8663357872164653443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d37a284bf562186499ed2745ccf8eebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasComboEnabled: 1

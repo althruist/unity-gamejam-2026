@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 823493025600937707}
   - component: {fileID: -4528480818210024717}
   - component: {fileID: -8412268478889280347}
+  - component: {fileID: 569307835718083889}
   m_Layer: 0
   m_Name: PlusBomb
   m_TagString: Tile
@@ -124,7 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a37b2361714cb74e9fb2a48ed2302ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombLevel: 1
 --- !u!61 &-8412268478889280347
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -171,3 +171,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &569307835718083889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6429054065812502559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d37a284bf562186499ed2745ccf8eebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasComboEnabled: 1

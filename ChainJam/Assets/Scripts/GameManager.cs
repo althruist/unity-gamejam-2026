@@ -12,6 +12,7 @@ public class GameManager : Singleton<GameManager>
 
     public GameObject levelCards;
     public TextMeshPro tileExplosionText;
+    public int currentChain;
 
     public Image card1Top;
     public TextMeshProUGUI card1LevelIncrease;
@@ -60,14 +61,13 @@ public class GameManager : Singleton<GameManager>
         GameData.crossBombAmount = 3;
 
         wall.transform.position = new Vector3(GameData.gridLenght - 2, 0, 0);
-        background.transform.position = new Vector3((float) (GameData.gridLenght - 10) /2, 0, 1);
-        background.GetComponent<SpriteRenderer>().size =  new Vector2(GameData.gridLenght + 8, 10);
+        background.transform.position = new Vector3((float)(GameData.gridLenght - 10) / 2, 0, 1);
+        background.GetComponent<SpriteRenderer>().size = new Vector2(GameData.gridLenght + 8, 10);
     }
 
     // Update is called once per frame
     void Update()
     {
-        loadLoseScreen();
         loadWin();
     }
 
@@ -80,16 +80,6 @@ public class GameManager : Singleton<GameManager>
     //        Debug.Log("Game Over!");
 
     //}
-
-
-    void loadLoseScreen()
-    {
-        if (GameData.energy <= 0)
-        {
-            //Time.timeScale = 1f;
-            SceneManager.LoadScene("LoseScene");
-        }
-    }
 
     void loadWin()
     {
@@ -247,11 +237,11 @@ public class GameManager : Singleton<GameManager>
             int newID = 0;
             for (int i = 0; i < chainList.Count; i++)
             {
-                if (chainList[i].x > newID) newID = (int) chainList[i].x;
+                if (chainList[i].x > newID) newID = (int)chainList[i].x;
             }
             newID++;
             chainList.Add(new Vector2(newID, 0));
-            return newID;  
+            return newID;
         }
 
     }
@@ -263,11 +253,11 @@ public class GameManager : Singleton<GameManager>
         {
             if (chainList[i].x == chainID && chainList[i].y > maxChain)
             {
-                maxChain = (int) chainList[i].y;
+                maxChain = (int)chainList[i].y;
             }
         }
         maxChain++;
-        chainList.Add(new Vector2(chainID,maxChain));
+        chainList.Add(new Vector2(chainID, maxChain));
         return maxChain;
     }
 

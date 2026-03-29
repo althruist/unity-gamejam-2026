@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7484456872523515010}
   - component: {fileID: 2892465420961898147}
   - component: {fileID: 3082413867715562718}
+  - component: {fileID: 6667087899544240635}
   m_Layer: 0
   m_Name: FuelTile
   m_TagString: Tile
@@ -171,3 +172,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6667087899544240635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8715387742681510453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d37a284bf562186499ed2745ccf8eebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasComboEnabled: 0

@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Laser : MonoBehaviour
 {
@@ -14,6 +16,17 @@ public class Laser : MonoBehaviour
         rb.linearVelocity = transform.up * 10f;
 
         chainID = GameManager.Instance.StartChain();
+        GameManager.Instance.currentChain = chainID;
+        GameData.lasersinScene++;
+    }
+
+    void checkEnergy()
+    {
+        if (GameData.energy <= 0 && GameData.lasersinScene == 0)
+        {
+            SceneManager.LoadScene("LoseScene");
+            Destroy(gameObject);
+        }
     }
 
     void OnBecameInvisible()
@@ -47,5 +60,10 @@ public class Laser : MonoBehaviour
         }
     }
 
+    void OnDestroy()
+    {
+        GameData.lasersinScene--;
+        checkEnergy();
+    }
 
 }
