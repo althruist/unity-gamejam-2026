@@ -1,33 +1,18 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class CrossBombTile : BaseBombTile
 {
-    protected override void Explode()
+    protected override IEnumerable<Vector3> GetExplosionOffsets()
     {
-        DisableCollider();
-        //GameManager.Instance.IncreaseChain(chainID);
-        //int currentChain = GameManager.Instance.IncreaseChain(chainID);
-        //Debug.Log(currentChain);
+        int size = GameData.crossBombLevel;
 
-        for (int i = 1; i <= GameData.crossBombLevel; i++)
+        for (int i = 1; i <= size; i++)
         {
-            Check(new Vector3(-i, i, 0));
-            Check(new Vector3(i, i, 0));
-            Check(new Vector3(-i, -i, 0));
-            Check(new Vector3(i, -i, 0));
+            yield return new Vector3(-i, i, 0);
+            yield return new Vector3(i, i, 0);
+            yield return new Vector3(-i, -i, 0);
+            yield return new Vector3(i, -i, 0);
         }
-        //GameManager.Instance.DeleteChain(chainID, currentChain);
-    }
-
-    void Check(Vector3 offset)
-    {
-        RaycastHit2D hit = Physics2D.Raycast(
-            transform.position + offset,
-            Vector2.down,
-            0.1f
-        );
-
-        if (hit.collider != null)
-            TriggerTile(hit.collider, chainID);
     }
 }

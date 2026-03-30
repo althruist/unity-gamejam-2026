@@ -1,37 +1,16 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlusBombTile : BaseBombTile
 {
-    protected override void Explode()
+    protected override IEnumerable<Vector3> GetExplosionOffsets()
     {
-        DisableCollider();
-        
-        //GameManager.Instance.IncreaseChain(chainID);
-
-        RaycastHit2D[] hitsVert = Physics2D.RaycastAll(
-            transform.position + (Vector3.up * GameData.plusBombLevel),
-            Vector2.down,
-            GameData.plusBombLevel * 2
-        );
-
-        RaycastHit2D[] hitsHori = Physics2D.RaycastAll(
-            transform.position + (Vector3.left * GameData.plusBombLevel),
-            Vector2.right,
-            GameData.plusBombLevel * 2
-        );
-
-        foreach (var hit in hitsVert)
+        for (int i = 1; i <= GameData.plusBombLevel; i++)
         {
-            if (hit.collider != null)
-                TriggerTile(hit.collider, chainID);
+            yield return Vector3.up * i;
+            yield return Vector3.down * i;
+            yield return Vector3.left * i;
+            yield return Vector3.right * i;
         }
-
-        foreach (var hit in hitsHori)
-        {
-            if (hit.collider != null)
-                TriggerTile(hit.collider, chainID);
-        }
-
-        //GameManager.Instance.DeleteChain(chainID, currentChain);
     }
 }
