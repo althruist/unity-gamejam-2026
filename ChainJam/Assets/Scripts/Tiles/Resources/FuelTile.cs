@@ -14,7 +14,7 @@ public class FuelTile : MonoBehaviour, IActionTile
         Debug.Log("Fuel tile destroyed. Remaining: " + GameManager.Instance.remainingFuelTiles);
 
         if (GameManager.Instance.GetChain(chainID) > 1)
-            GameData.fuel += 10 * GameManager.Instance.GetChain(chainID);
+            GameData.fuel += 15 * GameManager.Instance.GetChain(chainID);
         else
             GameData.fuel += 20;
 

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -32,7 +33,7 @@ public class GameManager : Singleton<GameManager>
     public int remainingFuelTiles;
 
 
-
+    bool losePending = false;
 
 
     public Sprite nextLevelNormal;
@@ -80,8 +81,8 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         Debug.Log("GameManager START");
-        
-        ResetOil();
+
+        ResetOilOnly();
 
         gameObject.GetComponent<AudioSource>().clip = ambience;
         gameObject.GetComponent<AudioSource>().loop = true;
@@ -108,28 +109,69 @@ public class GameManager : Singleton<GameManager>
         if (gameState != GameState.Playing) return;
 
         LoadWin();
-        
-        CheckLose();
 
+        // IMPORTANT: don't allow lose check if win already triggered
+        if (gameState != GameState.Win)
+        {
+            CheckLose();
+        }
     }
     void CheckLose()
     {
         if (remainingFuelTiles <= 0 && GameData.fuel < GameData.fuelToWin)
         {
-            Debug.Log("YOU LOSE");
-            gameState = GameState.GameOver; 
-                SceneManager.LoadScene(loseScene);
-
+            if (!losePending)
+            {
+                losePending = true;
+                StartCoroutine(LoseDelay());
+            }
         }
+    }
+
+    IEnumerator LoseDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        // Re-check AFTER delay (important!)
+        if (GameData.fuel < GameData.fuelToWin)
+        {
+            Debug.Log("YOU LOSE");
+            ResetAllStats();
+            gameState = GameState.GameOver;
+            SceneManager.LoadScene(loseScene);
+        }
+
+        losePending = false;
     }
 
 
 
-    void ResetOil()
+    void ResetOilOnly()
     {
-
         GameData.fuel = 0;
+    }
 
+
+    void ResetAllStats()
+    {
+        GameData.energy = 50;
+        GameData.fuel = 0;
+        GameData.gridLenght = 10; // set your default starting value
+        GameData.fuelToWin = 200;  // set your default starting value
+
+        GameData.bombLevel = 1;
+        GameData.crossBombLevel = 1;
+        GameData.plusBombLevel = 1;
+
+        GameData.bombAmount = 3;
+        GameData.plusBombAmount = 3;
+        GameData.crossBombAmount = 3;
+
+        GameData.levelType = LevelType.Normal;
+
+        chainList.Clear();
+
+        Debug.Log("ALL STATS RESET (Lose Condition)");
     }
 
     void CreateLevelCards()
@@ -371,6 +413,7 @@ public class GameManager : Singleton<GameManager>
             Debug.Log($"WIN CONDITION MET -> Fuel: {GameData.fuel}/{GameData.fuelToWin}");
 
             gameState = GameState.Win;
+            ResetOilOnly();
             Debug.Log("Game State set to WIN");
 
             CreateLevelCards();
