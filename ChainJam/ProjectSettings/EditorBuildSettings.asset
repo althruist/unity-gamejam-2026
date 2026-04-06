@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 127293e5e29da894a87b697e46fd259a
+  - enabled: 1
     path: Assets/Scenes/Gameplay.unity
     guid: e7d004c64130c604ba15ea16a405eb2e
   - enabled: 1
     path: Assets/Scenes/LoseScene.unity
     guid: 43ad4323b541e5343a65cbee59d07cea
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 127293e5e29da894a87b697e46fd259a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

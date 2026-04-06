@@ -18,8 +18,8 @@ public class CinematicLetterbox : MonoBehaviour
     [SerializeField] private bool _active = false;
 
     [Header("Positions (Y anchored)")]
-    public float topBorderOpenPos = -50f;
-    public float bottomBorderOpenPos = 50f;
+    public float topBorderOpenPos = -80f;
+    public float bottomBorderOpenPos = 100f;
     public float topBorderClosedPos = 0f;
     public float bottomBorderClosedPos = 0f;
 
